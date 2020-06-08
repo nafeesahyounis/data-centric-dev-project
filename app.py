@@ -5,8 +5,13 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def hello():
-    return "Hello World"
+def index():
+    return render_template("pages/index.html")
+
+@app.route('/find')
+
+def find():
+    return render_template("pages/find.html")
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
