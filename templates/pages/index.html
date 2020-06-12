@@ -1,15 +1,11 @@
-{% extends 'layout/base.html' %}
-{% block content %}
-<div class="container" style="margin-top:100px;" style="background-image: url('{{ url_for('static', filename='images/landmarks.jpg')}})">
-<div class="row">
-<div class="col-12>"
-<h1> Home</h1>
-<h2>hello world second attempt </h2>
-</div>
-</div>
-</div>
-   
-</body>
-</html>
+<html>
+    <head>
 
-{% endblock %}
+    </head>
+    <body>
+
+{% for task in tasks %}
+            {{task.city}}
+            {{task.category}}
+            {{task.name}}
+{% endfor %}
