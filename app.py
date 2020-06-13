@@ -27,6 +27,15 @@ def find():
 def add():
     return render_template("pages/addactivity.html", categories=mongo.db.things_to_do.find())
 
+@app.route('/insert_activity', methods=['POST'])
+
+def insert_task():
+
+    things_to_do = mongo.db.things_to_do
+    things_to_do.insert_one(request.form.to_dict())
+
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),

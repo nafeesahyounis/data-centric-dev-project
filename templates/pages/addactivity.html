@@ -2,7 +2,7 @@
 {% block content %}
 <h1> Add </h1>
 <div class="row">
-    <form class="col s12" action="" method="POST">
+    <form class="col s12" action=" {{url_for('insert_activity')}}" method="POST">
       <div class="row">
         <div class="input-field col s12">
           <input id="city" type="text" class="validate">
@@ -29,15 +29,14 @@
           <label for="password">Name</label>
         </div>
       </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="email" type="text" class="validate">
-          <label for="email">Website</label>
-        </div>
-      </div>
+      
       
       </div>
+      <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+    <i class="material-icons right">send</i>
+  </button>
     </form>
+    
   </div>
 {% endblock %}
 
