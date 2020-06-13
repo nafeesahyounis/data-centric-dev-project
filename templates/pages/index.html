@@ -1,11 +1,12 @@
-<html>
-    <head>
-
-    </head>
-    <body>
+{% extends 'layout/base.html' %}
+{% block content %}
 
 {% for task in tasks %}
             {{task.city}}
             {{task.category}}
             {{task.name}}
 {% endfor %}
+
+{% endblock %}
+
+
