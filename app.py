@@ -29,10 +29,11 @@ def add():
 
 @app.route('/insert_activity', methods=['POST'])
 
-def insert_task():
+def insert_activity():
 
     things_to_do = mongo.db.things_to_do
     things_to_do.insert_one(request.form.to_dict())
+    return redirect(url_for('index'))
 
 
 
