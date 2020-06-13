@@ -22,6 +22,11 @@ def index():
 def find():
     return render_template("pages/find.html")
 
+@app.route('/addactivity')
+
+def add():
+    return render_template("pages/addactivity.html", categories=mongo.db.things_to_do.find())
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
