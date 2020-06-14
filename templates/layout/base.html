@@ -9,6 +9,24 @@
 </head>
 
 <body>
+<ul id="dropdown1" class="dropdown-content">
+  <li><a href="#!">My Activities</a></li>
+  <li><a href="#!">Edit/Delete</a></li>
+  <li class="divider"></li>
+  <li><a href="#!">Create</a></li>
+</ul>
+<nav>
+  <div class="nav-wrapper">
+    <a href="#!" class="brand-logo">Logo</a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="sass.html">Home</a></li>
+      <li><a href="badges.html">Search Activity</a></li>
+      <!-- Dropdown Trigger -->
+      <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">My Account<i class="material-icons right">arrow_drop_down</i></a></li>
+    </ul>
+  </div>
+</nav>
+        
     {% block content %} 
     {% endblock %}
 
@@ -17,6 +35,7 @@
     <script type="text/javascript">
     $(document).ready(function(){
      $('select').material_select();
+     $(".dropdown-trigger").dropdown();
   });
     </script>
 
