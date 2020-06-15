@@ -1,6 +1,6 @@
 {% extends 'layout/base.html' %}
 {% block content %}
-<h1> Add </h1>
+<h1> Edit </h1>
 <div class="row">
     <form class="col s12" action=" {{url_for('insert_activity')}}" method="POST">
       <div class="row">
@@ -35,7 +35,7 @@
       <button class="btn waves-effect waves-light" type="submit" name="action">Submit
     <i class="material-icons right">send</i>
   </button>
-    <a href="{{url_for('editactivity', activity_id=activity._id)}}" class="waves-effect waves-light btn-large">Edit</a>
+  <a class="waves-effect waves-light btn-large">Edit</a>
 
     </form>
     
