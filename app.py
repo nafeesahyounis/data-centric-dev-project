@@ -46,14 +46,28 @@ def find_activity():
 
     #if request.form.get('name') != "":
     #    search_dict['name'] = request.form.get('name')
-    #matching_activities = mongo.db.things_to_do.find()
-    one_activity = list(mongo.db.things_to_do.find({'city': request.form.get('city'), 'category': request.form.get('category')}))
+    name = {'name':request.form.get('name')}
 
+    search_dict = {'city': request.form.get('city'), 'category': request.form.get('category')}
+    #edited_activities = search_dict.update(name)
+    original_activities = list(mongo.db.things_to_do.find(search_dict))
+
+    #if name !="":
+    #    one_activity = list(mongo.db.things_to_do.find(search_dict.update(name))
+    #return(one_activity)
+
+    # create an instance of the dictionary for category & city
+    # create an instance of the name attribute
+    # when form data includes name, modify search_dict and add a name filter 
     
+    
+    print(search_dict)
     print(my_name)
-    print(one_activity)
+    print(original_activities)
+    #print(edited_activities)
+    #print(final_activities)
     
-    return render_template("pages/findactivity.html", activity=one_activity)
+    return render_template("pages/findactivity.html", result=original_activities)
 
 
 
