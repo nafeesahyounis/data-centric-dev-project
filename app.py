@@ -46,14 +46,14 @@ def find_activity():
 
     #if request.form.get('name') != "":
     #    search_dict['name'] = request.form.get('name')
-    
-
     #matching_activities = mongo.db.things_to_do.find()
-    one_activity = mongo.db.things_to_do.find_one({'city': request.form.get('city')})
+    one_activity = list(mongo.db.things_to_do.find({'city': request.form.get('city')}))
     print(my_name)
     print(one_activity)
     
-    return render_template("pages/findactivity.html", one_activity=one_activity)
+    return render_template("pages/findactivity.html", activity=one_activity)
+
+
 
 
 
