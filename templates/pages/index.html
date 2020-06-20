@@ -1,11 +1,13 @@
 {% extends 'layout/base.html' %}
 {% block content %}
-
+<ul>
 {% for task in tasks %}
-            {{task.city}}
-            {{task.category}}
-            {{task.name}}
+           <li> {{task.city}}</li>
+           <li> {{task.category}}</li>
+           <li> {{task.name}}</li>
+
 {% endfor %}
+</ul>
 
 {% endblock %}
 

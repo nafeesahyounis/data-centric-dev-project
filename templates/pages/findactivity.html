@@ -1,0 +1,15 @@
+
+{% extends 'layout/base.html' %}
+{% block content %}
+
+{% for result in results %}
+           <li> {{result.city}}</li>
+           <li> {{result.category}}</li>
+           <li> {{result.name}}</li>
+
+           <p>{{one_activity}}</p>
+           <p>{{results}}</p>
+
+{% endfor %}
+
+{% endblock %}
