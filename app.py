@@ -46,11 +46,12 @@ def find_activity():
 
     #if request.form.get('name') != "":
     #    search_dict['name'] = request.form.get('name')
-    name = {'name':request.form.get('name')}
-
+    name = {'name': request.form.get('name')}
     search_dict = {'city': request.form.get('city'), 'category': request.form.get('category')}
+    new_dict = search_dict.update(name)
+
     #edited_activities = search_dict.update(name)
-    original_activities = list(mongo.db.things_to_do.find(search_dict))
+    #original_activities = list(mongo.db.things_to_do.find(search_dict))
 
     #if name !="":
     #    one_activity = list(mongo.db.things_to_do.find(search_dict.update(name))
@@ -59,15 +60,44 @@ def find_activity():
     # create an instance of the dictionary for category & city
     # create an instance of the name attribute
     # when form data includes name, modify search_dict and add a name filter 
+    # need to test and see if dictionary value for name is empty
     
-    
+    #if name is !="":
+    #    new_dict = search_dict.update(name)
+     #   final_activities = list(mongo.db.things_to_do.find(new_dict))
+    #return (final_activities)
+
+    # using bool() 
+    # Check if dictionary is empty 
+    res = not bool(name) 
+    if res:
+        final_activities= list(mongo.db.things_to_do.find(search_dict))
+    else:
+        final_activities= list(mongo.db.things_to_do.find(new_dict))
+        print("Is dictionary empty ? : " + str(res)) 
+
+
+        print(search_dict)
+        print(new_dict)
+
+        print(my_name)
+        print(final_activities)
+        return render_template('pages/findactivity.html', result=search_dict)
+
+
+    # print result 
+    print("Is dictionary empty ? : " + str(res)) 
+
+
     print(search_dict)
+    print(new_dict)
+
     print(my_name)
-    print(original_activities)
+    print(final_activities)
     #print(edited_activities)
     #print(final_activities)
     
-    return render_template("pages/findactivity.html", result=original_activities)
+    return render_template("pages/findactivity.html", result=final_activities)
 
 
 
