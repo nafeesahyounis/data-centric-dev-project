@@ -20,7 +20,7 @@ mongo = PyMongo(app)
 def index():
 
 
-    return render_template("pages/index.html", tasks=mongo.db.things_to_do.find())
+    return render_template("pages/index.html", activities=mongo.db.things_to_do.find())
 
 @app.route('/find')
 
@@ -100,6 +100,17 @@ def find_activity():
     #print(final_activities)
     
     return render_template("pages/findactivity.html", result=final_activities)
+
+
+
+@app.route('/edit_activity/<activity_id>')
+
+def edit_activity(activity_id):
+
+        the_activity = mongo.db.things_to_do.find_one({"_id": ObjectId(activity_id)})
+        categories = mongo.db.things_to_do.find()
+
+        return render_template("pages/editactivity.html", activity=the_activity, categories=categories)
 
 
 

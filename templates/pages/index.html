@@ -1,11 +1,14 @@
 {% extends 'layout/base.html' %}
 {% block content %}
 <ul>
-{% for task in tasks %}
-           <li> {{task.city}}</li>
-           <li> {{task.category}}</li>
-           <li> {{task.name}}</li>
-<a class="waves-effect waves-light btn-large">Edit</a>
+{% for activity in activities %}
+           <li> {{activity.city}}</li>
+           <li> {{activity.category}}</li>
+           <li> {{activity.name}}</li>
+        <li> {{activity._id}}</li>
+
+
+<a class="waves-effect waves-light btn-large" href="{{url_for('edit_activity', activity_id=activity._id)}}">Edit</a>
 
 
 {% endfor %}
