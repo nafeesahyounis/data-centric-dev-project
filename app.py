@@ -46,12 +46,15 @@ def find_activity():
 
     #if request.form.get('name') != "":
     #    search_dict['name'] = request.form.get('name')
-    name = {'name': request.form.get('name')}
     search_dict = {'city': request.form.get('city'), 'category': request.form.get('category')}
-    new_dict = search_dict.update(name)
+    if request.form.get('name') != "":
+        name = {'name': request.form.get('name')}
+        search_dict.update(name)
 
     #edited_activities = search_dict.update(name)
     #original_activities = list(mongo.db.things_to_do.find(search_dict))
+    final_activities = list(mongo.db.things_to_do.find(search_dict))
+
 
     #if name !="":
     #    one_activity = list(mongo.db.things_to_do.find(search_dict.update(name))
@@ -69,28 +72,27 @@ def find_activity():
 
     # using bool() 
     # Check if dictionary is empty 
-    res = not bool(name) 
-    if res:
-        final_activities= list(mongo.db.things_to_do.find(search_dict))
-    else:
-        final_activities= list(mongo.db.things_to_do.find(new_dict))
-        print("Is dictionary empty ? : " + str(res)) 
+    #res = not bool(name) 
+    #if res:
+    #    final_activities= list(mongo.db.things_to_do.find(search_dict))
+    #else:
+    #    final_activities= list(mongo.db.things_to_do.find(new_dict))
+    #    print("Is dictionary empty ? : " + str(res)) 
 
 
-        print(search_dict)
-        print(new_dict)
+    #    print(new_dict)
 
-        print(my_name)
-        print(final_activities)
-        return render_template('pages/findactivity.html', result=search_dict)
+    #    print(my_name)
+    #    print(final_activities)
+    #    return render_template('pages/findactivity.html', result=search_dict)
 
 
     # print result 
-    print("Is dictionary empty ? : " + str(res)) 
+    #print("Is dictionary empty ? : " + str(res)) 
 
 
     print(search_dict)
-    print(new_dict)
+    #print(new_dict)
 
     print(my_name)
     print(final_activities)
@@ -98,7 +100,6 @@ def find_activity():
     #print(final_activities)
     
     return render_template("pages/findactivity.html", result=final_activities)
-
 
 
 
