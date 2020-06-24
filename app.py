@@ -112,9 +112,22 @@ def edit_activity(activity_id):
 
         return render_template("pages/editactivity.html", activity=the_activity, categories=categories)
 
+ 
 
+@app.route('/update_activity/<activity_id>', methods=['POST'])
 
+def update_activity(activity_id):
 
+    activities=mongo.db.things_to_do
+    activities.update({'_id': ObjectId(activity_id)},
+    {
+     'name': request.form.get('name'),
+     'category': request.form.get('category'),
+     'city': request.form.get('city'),
+        
+    })
+
+    return redirect(url_for('index'))
 
 
 
