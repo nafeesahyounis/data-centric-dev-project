@@ -29,6 +29,12 @@ def find():
     return render_template("pages/find.html", categories=mongo.db.things_to_do.find())
     
 
+@app.route('/login')
+
+def login():
+
+    return render_template("pages/login.html")
+
 @app.route('/register')
 
 def register():
@@ -46,7 +52,7 @@ def new_user():
     print(first_name)
     print(surname)
 
-    return render_template('pages/newuser.html')
+    return render_template('pages/newuser.html', surname=surname, first_name = first_name)
 
 
 @app.route('/find_activity', methods=['POST'])
