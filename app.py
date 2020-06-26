@@ -29,6 +29,24 @@ def find():
     return render_template("pages/find.html", categories=mongo.db.things_to_do.find())
     
 
+@app.route('/register')
+
+def register():
+
+    return render_template("pages/register.html")
+
+@app.route('/new_user', methods = ['POST'])
+
+def new_user():
+
+    users = mongo.db.users
+    users.insert_one(request.form.to_dict())
+    first_name = request.form.get('first_name')
+    surname = request.form.get('last_name')
+    print(first_name)
+    print(surname)
+
+    return render_template('pages/newuser.html')
 
 
 @app.route('/find_activity', methods=['POST'])
