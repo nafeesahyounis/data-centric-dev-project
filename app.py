@@ -33,7 +33,18 @@ def find():
 
 def login():
 
+    
     return render_template("pages/login.html")
+
+@app.route('/logging_in', methods=['POST'])
+
+def logging_in():
+
+    search_email = request.form.get('email')
+    user_email = mongo.db.users.find_one({"email": search_email})
+    print(user_email)
+    return redirect(url_for('index'))
+
 
 @app.route('/register')
 
