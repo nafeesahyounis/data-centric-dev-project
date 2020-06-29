@@ -39,12 +39,31 @@ def login():
 @app.route('/logging_in', methods=['POST'])
 
 def logging_in():
+    #email = request.form.get('email')
+    #password = request.form.get('password')
+    #user_email = mongo.db.users.find_one({'email': email})
+    #user_password = mongo.db.users.find_one({'password': password})
+    query = {'$and': [{'password': request.form.get('password')}, {'email': request.form.get('email')}]}
 
-    search_email = request.form.get('email')
-    user_email = mongo.db.users.find_one({"email": search_email})
-    print(user_email)
+    result = mongo.db.users.find_one(query)
+
+    print(result)
+
+    if result == None:
+        print("User does not exist")
+    else:
+        print("User has been found")
+
+    #if email and password == user_email:
+    #    print("User has been found")
+    #else:
+    #    print("user does not exist")
+    #print(user_email)
     return redirect(url_for('index'))
-
+#check if email is in database
+#check if password is in database
+#if yes, log in
+#if no, user does not exist. Would you like to register?
 
 @app.route('/register')
 
