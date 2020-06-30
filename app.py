@@ -48,7 +48,6 @@ def index():
     final_result = mongo.db.things_to_do.find_one({result})
     print(result)
     print(final_result)
-
     return redirect(url_for('pages/findactivity.html'))
 
 
@@ -70,15 +69,11 @@ def logging_in():
     #user_password = mongo.db.users.find_one({'password': password})
     user = mongo.db.users.find_one({'name': request.form.get('name')})
     query = {'$and': [{'password': request.form.get('password')}, {'email': request.form.get('email')}]}
-
     result = mongo.db.users.find_one(query)
-
     print(result)
-
     if result == None:
         print("User does not exist")
     else:
-
         print("user has been found")
 
     #if email and password == user_email:
@@ -107,7 +102,6 @@ def new_user():
     surname = request.form.get('last_name')
     print(first_name)
     print(surname)
-
     return render_template('pages/newuser.html', surname=surname, first_name = first_name)
 
 
@@ -186,7 +180,6 @@ def edit_activity(activity_id):
 
         the_activity = mongo.db.things_to_do.find_one({"_id": ObjectId(activity_id)})
         categories = mongo.db.things_to_do.find()
-
         return render_template("pages/editactivity.html", activity=the_activity, categories=categories)
 
  
