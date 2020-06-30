@@ -4,12 +4,17 @@
   <div class="hero-text">
     <h1 style="font-family: 'Shadows Into Light', cursive; color:">Welcome </h1>
     <div class="row search-bar">
-    <form class="col s12">
+    <form class="col s12" action="{{url_for('find_activity')}}" method="POST">
       <div class="row">
         <div class="input-field col s12">
-          <textarea id="textarea1" class="materialize-textarea"></textarea>
-          <label for="textarea1">type the name of a city here and find activities now</label>
+          <textarea id="textarea1" class="materialize-textarea" name="city"></textarea>
+          <label for="textarea1">type the name of a city here and search activities now</label>
+    <button class="btn waves-effect waves-light" type="submit" name="action">Search
+    <i class="material-icons right">send</i>
+  </button>
+        
         </div>
+
       </div>
     </form>
   </div>

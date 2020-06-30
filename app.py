@@ -1,9 +1,11 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template, redirect, session, flash, request, url_for
+from flask_login import LoginManager
 from flask_pymongo import PyMongo
 from os import path
 from bson.objectid import ObjectId
 from bson.json_util import dumps
+#from app import login
 
 if path.exists("env.py"):
   import env 
@@ -14,35 +16,59 @@ app.config["MONGO_DBNAME"] = 'solo_traveller_handbook'
 app.config["MONGO_URI"] = os.environ.get('MONGO_URI')
 
 mongo = PyMongo(app)
+# Set the secret key to some random bytes. Keep this really secret!
+app.secret_key = b'\x81\xa7\x9b\x8bq\x16x\x0b~A\x9c\xbb>\xe6\xef-'
+#login_manager = LoginManager()
+#login_manager.init_app(app)
+
+
+#@login.user_loader
+#def load_user(id):
+#    return User.query.get(int(id))
 
 @app.route('/')
-@app.route('/home')
+@app.route('/index', methods=["GET", "POST"])
 def index():
 
+    if (request.method == "POST"):
+        city_to_search = request.form.get('city')
+        search_database = list(mongo.db.things_to_do.find({'city': city_to_search}))
+        print(search_database)
+        print(city)
+        return redirect(url_for('find_activity'))
+    else:
+        return render_template("pages/index.html", activities=mongo.db.things_to_do.find())
 
-    return render_template("pages/index.html", activities=mongo.db.things_to_do.find())
+
+#@app.route('/searchfromhomepage', methods=['POST'])
+
+#def searchfromhomepage():
+
+    result = request.form.get('city')
+    final_result = mongo.db.things_to_do.find_one({result})
+    print(result)
+    print(final_result)
+
+    return redirect(url_for('pages/findactivity.html'))
+
 
 @app.route('/find')
-
 def find():
-
     return render_template("pages/find.html", categories=mongo.db.things_to_do.find())
-    
+
 
 @app.route('/login')
-
 def login():
-
-    
     return render_template("pages/login.html")
 
-@app.route('/logging_in', methods=['POST'])
 
+@app.route('/logging_in', methods=['POST'])
 def logging_in():
     #email = request.form.get('email')
     #password = request.form.get('password')
     #user_email = mongo.db.users.find_one({'email': email})
     #user_password = mongo.db.users.find_one({'password': password})
+    user = mongo.db.users.find_one({'name': request.form.get('name')})
     query = {'$and': [{'password': request.form.get('password')}, {'email': request.form.get('email')}]}
 
     result = mongo.db.users.find_one(query)
@@ -52,7 +78,8 @@ def logging_in():
     if result == None:
         print("User does not exist")
     else:
-        print("User has been found")
+
+        print("user has been found")
 
     #if email and password == user_email:
     #    print("User has been found")
@@ -65,14 +92,13 @@ def logging_in():
 #if yes, log in
 #if no, user does not exist. Would you like to register?
 
+
 @app.route('/register')
-
 def register():
-
     return render_template("pages/register.html")
 
-@app.route('/new_user', methods = ['POST'])
 
+@app.route('/new_user', methods = ['POST'])
 def new_user():
 
     users = mongo.db.users
@@ -85,8 +111,7 @@ def new_user():
     return render_template('pages/newuser.html', surname=surname, first_name = first_name)
 
 
-@app.route('/find_activity', methods=['POST'])
-
+@app.route('/find_activity', methods=['GET', 'POST'])
 def find_activity():
 
     #category_to_search = request.form.get('category')
@@ -100,10 +125,10 @@ def find_activity():
 
     #if request.form.get('name') != "":
     #    search_dict['name'] = request.form.get('name')
-    search_dict = {'city': request.form.get('city'), 'category': request.form.get('category')}
-    if request.form.get('name') != "":
-        name = {'name': request.form.get('name')}
-        search_dict.update(name)
+    search_dict = {'city': request.form.get('city')}  #'category': request.form.get('category')
+    # if request.form.get('name') != "":
+    #     name = {'name': request.form.get('name')}
+    #     search_dict.update(name)
 
     #edited_activities = search_dict.update(name)
     #original_activities = list(mongo.db.things_to_do.find(search_dict))
@@ -156,9 +181,7 @@ def find_activity():
     return render_template("pages/findactivity.html", result=final_activities)
 
 
-
 @app.route('/edit_activity/<activity_id>')
-
 def edit_activity(activity_id):
 
         the_activity = mongo.db.things_to_do.find_one({"_id": ObjectId(activity_id)})
@@ -167,9 +190,7 @@ def edit_activity(activity_id):
         return render_template("pages/editactivity.html", activity=the_activity, categories=categories)
 
  
-
 @app.route('/update_activity/<activity_id>', methods=['POST'])
-
 def update_activity(activity_id):
 
     activities=mongo.db.things_to_do
@@ -183,18 +204,13 @@ def update_activity(activity_id):
 
     return redirect(url_for('index'))
 
-
-
-
-
     
 @app.route('/addactivity')
-
 def add():
     return render_template("pages/addactivity.html", categories=mongo.db.things_to_do.find())
 
-@app.route('/insert_activity', methods=['POST'])
 
+@app.route('/insert_activity', methods=['POST'])
 def insert_activity():
 
     things_to_do = mongo.db.things_to_do
