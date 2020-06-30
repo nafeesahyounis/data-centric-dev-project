@@ -1,6 +1,42 @@
 {% extends 'layout/base.html' %}
 {% block content %}
-<ul>
+<div class="hero-image" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('static/images/traveller.jpg')">
+  <div class="hero-text">
+    <h1 style="font-family: 'Shadows Into Light', cursive; color:">Welcome </h1>
+    <div class="row search-bar">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea id="textarea1" class="materialize-textarea"></textarea>
+          <label for="textarea1">type the name of a city here and find activities now</label>
+        </div>
+      </div>
+    </form>
+  </div>
+  </div>
+</div>
+<div class="row">
+    <div class="col s4 m5">
+      <div class="card-panel">
+        <span class="white-text">I am a very simple card. I am good at containing small bits of information.
+        I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+        </span>
+      </div>
+    </div>
+    <div class="col s4 m5">
+      <div class="card-panel">
+        <span class="white-text">I am a very simple card. I am good at containing small bits of information.
+        I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+        </span>
+      </div>
+    </div>
+    
+  </div>
+            
+  </div>
+            
+            
+<!--<ul>
 {% for activity in activities %}
            <li> {{activity.city}}</li>
            <li> {{activity.category}}</li>
@@ -12,7 +48,7 @@
 
 
 {% endfor %}
-</ul>
+</ul>--> 
 
 {% endblock %}
 
