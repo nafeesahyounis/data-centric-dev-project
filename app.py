@@ -5,6 +5,7 @@ from flask_pymongo import PyMongo
 from os import path
 from bson.objectid import ObjectId
 from bson.json_util import dumps
+import bcrypt
 #from app import login
 
 if path.exists("env.py"):
@@ -30,12 +31,20 @@ app.secret_key = b'\x81\xa7\x9b\x8bq\x16x\x0b~A\x9c\xbb>\xe6\xef-'
 @app.route('/index', methods=["GET", "POST"])
 def index():
 
+    if 'email' in session:
+        return 'You are logged in as' + session['email']
+    else:
+        return render_template("pages/index.html")
+
+    
+    
+    city_to_search = {'city': request.form.get('city')}
     if (request.method == "POST"):
-        city_to_search = request.form.get('city')
-        search_database = list(mongo.db.things_to_do.find({'city': city_to_search}))
+      
+        search_database = list(mongo.db.things_to_do.find(city_to_search))
         print(search_database)
-        print(city)
-        return redirect(url_for('find_activity'))
+        print(city_to_search)
+        return redirect(url_for('findactivity'))
     else:
         return render_template("pages/index.html", activities=mongo.db.things_to_do.find())
 
@@ -88,21 +97,34 @@ def logging_in():
 #if no, user does not exist. Would you like to register?
 
 
-@app.route('/register')
+@app.route('/register', methods=['GET', 'POST'])
 def register():
-    return render_template("pages/register.html")
+
+    if request.method =='POST':
+        users = mongo.db.users
+        existing_user = users.find_one({'email': request.form.get('email')})
+
+        if existing_user is None:
+            hashpass = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
+            new_user = users.insert_one(request.form.to_dict())
+            session['email'] = request.form.get('email')
+            print(new_user)
+            return redirect(url_for('index'))
+        return 'That Username Already Exists!'
+    else:
+        return render_template("pages/register.html")
 
 
-@app.route('/new_user', methods = ['POST'])
-def new_user():
+#@app.route('/new_user', methods = ['POST'])
+#def new_user():
 
-    users = mongo.db.users
-    users.insert_one(request.form.to_dict())
-    first_name = request.form.get('first_name')
-    surname = request.form.get('last_name')
-    print(first_name)
-    print(surname)
-    return render_template('pages/newuser.html', surname=surname, first_name = first_name)
+    #users = mongo.db.users
+   # users.insert_one(request.form.to_dict())
+   # first_name = request.form.get('first_name')
+   # surname = request.form.get('last_name')
+   # print(first_name)
+   # print(surname)
+  #  return render_template('pages/newuser.html', surname=surname, first_name = first_name)
 
 
 @app.route('/find_activity', methods=['GET', 'POST'])

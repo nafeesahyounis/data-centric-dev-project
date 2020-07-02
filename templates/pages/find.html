@@ -1,7 +1,13 @@
 {% extends 'layout/base.html' %}
 {% block content %}
-<h1> Find </h1>
-<div class="row">
+<div class="hero-image-find" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('static/images/motorcyle.jpg')">
+  <div class="hero-text">
+    <h1 style="font-family: 'Shadows Into Light', cursive; color:">Search Activity </h1>
+    
+  </div>
+</div>
+<div class="container">
+<div class="row search-form">
     <form class="col s12" action="{{url_for('find_activity')}}" method="POST">
       <div class="row">
         <div class="input-field col s12">
@@ -37,5 +43,6 @@
   </button>
     </form>
     
+  </div>
   </div>
 {% endblock %}

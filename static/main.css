@@ -24,6 +24,22 @@ background-color:rgba(233, 154, 39, 0.8)
   background-size: cover;
   position: relative;
 }
+.search-form{
+    background-color:rgba(47, 72, 88, 0.5);
+}
+.hero-image-find{
+    /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+  
+
+  /* Set a specific height */
+  height: 40%;
+
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
 
 /* Place text in the middle of the image */
 .hero-text {
