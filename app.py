@@ -114,7 +114,10 @@ def register():
     else:
         return render_template("pages/register.html")
 
-
+@app.route('/logout')
+def logout():
+   session.clear()
+   return redirect(url_for('index'))
 #@app.route('/new_user', methods = ['POST'])
 #def new_user():
 
@@ -222,7 +225,11 @@ def update_activity(activity_id):
     
 @app.route('/addactivity')
 def add():
-    return render_template("pages/addactivity.html", categories=mongo.db.things_to_do.find())
+
+    if 'email' in session:
+        return render_template("pages/addactivity.html", categories=mongo.db.things_to_do.find())
+    else:
+        return "Permission Denied"
 
 
 @app.route('/insert_activity', methods=['POST'])
