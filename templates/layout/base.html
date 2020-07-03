@@ -20,14 +20,22 @@
   <div class="nav-wrapper">
 
     <a href="#!" class="brand-logo" style="font-family: 'Shadows Into Light', cursive; color: #062136;">The Solo-Traveller Handbook</a>
+
+    
     <ul class="right hide-on-med-and-down">
+    {% if 'email' not in session %}
+      <li><a href="{{url_for('index')}}">Home</a></li>
+      <li><a href="{{url_for('find')}}">Search Activity</a></li>
+      <li><a href="{{url_for('register')}}">Register</a></li>
+      <li><a href="{{url_for('login')}}">Login</a></li>
+    {% else %}
       <li><a href="{{url_for('index')}}">Home</a></li>
       <li><a href="{{url_for('find')}}">Search Activity</a></li>
       <li><a href="{{url_for('find')}}">Manage My Listings</a></li>
       <li><a href="{{url_for('addactivity')}}">Create Activities</a></li>
-      <li><a href="{{url_for('register')}}">Register</a></li>
-      <li><a href="{{url_for('login')}}">Login</a></li>
       <li><a href="{{url_for('find')}}">Logout</a></li>
+     {% endif %}
+    </ul>
 
 
 
