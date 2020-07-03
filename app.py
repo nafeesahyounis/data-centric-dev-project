@@ -253,8 +253,20 @@ def addactivity():
 @app.route('/insert_activity', methods=['POST'])
 def insert_activity():
 
+    email = session['email']
+    print(email)
     things_to_do = mongo.db.things_to_do
-    things_to_do.insert_one(request.form.to_dict())
+    
+    new_activity=things_to_do.insert_one(
+   
+   {
+      'user': email,
+      'city': request.form.get('city'),
+      'category': request.form.get('category'),
+      'name': request.form.get('name')
+   }
+)
+    print(new_activity)
     return redirect(url_for('index'))
 
 
