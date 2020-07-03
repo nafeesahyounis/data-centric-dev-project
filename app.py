@@ -32,8 +32,7 @@ app.secret_key = b'\x81\xa7\x9b\x8bq\x16x\x0b~A\x9c\xbb>\xe6\xef-'
 def index():
 
     if 'email' in session:
-        return 'You are logged in as' + session['email']
-    else:
+        print('we are in')
         return render_template("pages/index.html")
 
     
@@ -65,32 +64,49 @@ def find():
     return render_template("pages/find.html", categories=mongo.db.things_to_do.find())
 
 
-@app.route('/login')
+@app.route('/login', methods=['GET','POST'])
 def login():
-    return render_template("pages/login.html")
+    if request.method =='POST':
+        user = mongo.db.users.find_one({'name': request.form.get('name')})
+        collect_email = {'email':request.form.get('email')}
+    #collect_form_data = {'$and': [{'password': request.form.get('password')}, {'email': request.form.get('email')}]}
+        email_exists = mongo.db.users.find_one(collect_email)
+        if email_exists:
+            collect_form_data = {'$and': [{'password': request.form.get('password')}, {'email': request.form.get('email')}]}
+            session['email'] = request.form.get('email')
+            return redirect(url_for('index'))
+        else:
+            doesnt_exist = "Invalid username/password combination. Please try again, or register to make an account"
+            print(doesnt_exist)
+            return render_template("pages/login.html", doesnt_exist = doesnt_exist)
+    else:
+        return render_template("pages/login.html")
 
 
-@app.route('/logging_in', methods=['POST'])
-def logging_in():
+    
+
+
+#@app.route('/logging_in', methods=['POST'])
+#def logging_in():
     #email = request.form.get('email')
     #password = request.form.get('password')
     #user_email = mongo.db.users.find_one({'email': email})
     #user_password = mongo.db.users.find_one({'password': password})
-    user = mongo.db.users.find_one({'name': request.form.get('name')})
-    query = {'$and': [{'password': request.form.get('password')}, {'email': request.form.get('email')}]}
-    result = mongo.db.users.find_one(query)
-    print(result)
-    if result == None:
-        print("User does not exist")
-    else:
-        print("user has been found")
+    #user = mongo.db.users.find_one({'name': request.form.get('name')})
+    #query = {'$and': [{'password': request.form.get('password')}, {'email': request.form.get('email')}]}
+    #result = mongo.db.users.find_one(query)
+    #print(result)
+    #if result == None:
+    #    print("User does not exist")
+    #else:
+     #   print("user has been found")
 
     #if email and password == user_email:
     #    print("User has been found")
     #else:
     #    print("user does not exist")
     #print(user_email)
-    return redirect(url_for('index'))
+    #return redirect(url_for('index'))
 #check if email is in database
 #check if password is in database
 #if yes, log in
@@ -203,9 +219,11 @@ def find_activity():
 @app.route('/edit_activity/<activity_id>')
 def edit_activity(activity_id):
 
+    if 'email' in session:
         the_activity = mongo.db.things_to_do.find_one({"_id": ObjectId(activity_id)})
         categories = mongo.db.things_to_do.find()
         return render_template("pages/editactivity.html", activity=the_activity, categories=categories)
+    return 'Permission Denied'
 
  
 @app.route('/update_activity/<activity_id>', methods=['POST'])
@@ -224,7 +242,7 @@ def update_activity(activity_id):
 
     
 @app.route('/addactivity')
-def add():
+def addactivity():
 
     if 'email' in session:
         return render_template("pages/addactivity.html", categories=mongo.db.things_to_do.find())

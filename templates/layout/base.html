@@ -8,15 +8,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
 
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+
 </head>
 
 <body>
-<ul id="dropdown1" class="dropdown-content">
-  <li><a href="#!">My Activities</a></li>
-  <li><a href="#!">Edit/Delete</a></li>
-  <li class="divider"></li>
-  <li><a href="#!">Create</a></li>
-</ul>
+
 <nav>
   <div class="nav-wrapper">
 
@@ -24,25 +23,23 @@
     <ul class="right hide-on-med-and-down">
       <li><a href="{{url_for('index')}}">Home</a></li>
       <li><a href="{{url_for('find')}}">Search Activity</a></li>
-      <!-- Dropdown Trigger -->
-      <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">My Account<i class="material-icons right">arrow_drop_down</i></a></li>
-    </ul>
-  </div>
+      <li><a href="{{url_for('find')}}">Manage My Listings</a></li>
+      <li><a href="{{url_for('addactivity')}}">Create Activities</a></li>
+      <li><a href="{{url_for('register')}}">Register</a></li>
+      <li><a href="{{url_for('login')}}">Login</a></li>
+      <li><a href="{{url_for('find')}}">Logout</a></li>
+
+
+
+      
 </nav>
         
-    {% block content %} 
-    {% endblock %}
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-    <script type="text/javascript">
-    $(document).ready(function(){
-     $('select').material_select();
-     $(".dropdown-trigger").dropdown();
-  });
-    </script>
-
+    
+    
 
 </body>
 
 </html>
+
+{% block content %} 
+    {% endblock %}
