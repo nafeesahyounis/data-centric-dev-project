@@ -3,13 +3,15 @@
 <div class="hero-image-find" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('static/images/lighthouse.png')">
 <div class="hero-text">
     <h1 style="font-family: 'Shadows Into Light', cursive; color:">Manage My Listings </h1>
-    <p>Been somewhere cool and want to share it with other travellers? As a registered user, all you have to do is fill in the form below, hit submit and your favourites will be added to the collection!</p> 
-    <p> Once you've submitted your activity, you'll be redirected to your listings page, where you can view all the activities you've created. </p>
-    <p> Oops. Did you make a mistake and want to Edit the activity you created? Or do you want to delete it entirely? No worries! You can do all of that on the Manage My Listings Page. </p>
+    <p> Listed below are all of the activities you have created. </p>
+    <p> Want to Create another one? <a class="waves-effect waves-light btn-small" href="{{url_for('addactivity')}}">Create New Activity</a></p>
   </div>
 </div>
-
-{% if user_activities==[]%}
+<main class="background">
+<div class="container my-listings">
+<div class ="row">
+<div class="col s12"
+{% if user_activities=="[]"%}
 <p>{{no_activities}}</p>
     {% else %}
     {% for user_activity in user_activities %}
@@ -22,5 +24,8 @@
 {% endfor %}
 
      {% endif %} 
-    
+</div>
+</div>
+</div>
+ </main>   
 {% endblock %}
