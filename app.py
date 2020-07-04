@@ -97,27 +97,41 @@ def find_activity():
     print(final_activities)
     return render_template("pages/findactivity.html", result=final_activities)
 
+@app.route('/managemylistings')
+def managemylistings():
+    if 'email' in session:
+        user = session['email']
+        user_activities=list(mongo.db.things_to_do.find({'user':user}))
+        no_activities = "There are no activities"
+        print(no_activities)
+        print(user_activities)
+        return render_template("pages/managemylistings.html", user_activities = user_activities, no_activities = no_activities)
+    return("Permission Denied")
+    
 
-@app.route('/edit_activity/<activity_id>')
-def edit_activity(activity_id):
+@app.route('/edit_activity/<user_activity_id>')
+def edit_activity(user_activity_id):
 
     if 'email' in session:
-        the_activity = mongo.db.things_to_do.find_one({"_id": ObjectId(activity_id)})
+        the_activity = mongo.db.things_to_do.find_one({"_id": ObjectId(user_activity_id)})
         categories = mongo.db.things_to_do.find()
-        return render_template("pages/editactivity.html", activity=the_activity, categories=categories)
+        return render_template("pages/editactivity.html", user_activity=the_activity, categories=categories)
     return 'Permission Denied'
 
  
-@app.route('/update_activity/<activity_id>', methods=['POST'])
-def update_activity(activity_id):
-    activities=mongo.db.things_to_do
-    activities.update({'_id': ObjectId(activity_id)},
-    {
-     'name': request.form.get('name'),
-     'category': request.form.get('category'),
-     'city': request.form.get('city'),
+@app.route('/update_activity/<user_activity_id>', methods=['POST'])
+def update_activity(user_activity_id):
+    if 'email' in session:
+        email = session['email']
+        activities=mongo.db.things_to_do
+        activities.update({'_id': ObjectId(user_activity_id)},
+        {
+            'user': email,
+            'name': request.form.get('name'),
+            'category': request.form.get('category'),
+            'city': request.form.get('city'),
         
-    })
+        })
 
     return redirect(url_for('index'))
 
