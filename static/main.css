@@ -1,4 +1,5 @@
 body, html {
+    height: 100%;
     background-color:rgba(102, 133, 152, 0.9);
 }
 
@@ -23,7 +24,6 @@ background-color:rgba(233, 154, 39, 0.8)
 }
 .search-form{
     background-color:white;
-    height:100%;
 }
 .hero-image-find{
     /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
