@@ -46,7 +46,30 @@
   </button>
     </form>
 </div>
-<div class="col s8 results"> Hello </div>
+<div class="col s8 results"> 
+
+
+        {% for result in results %}
+
+          <h2>{{result.city}}</h2>
+          <p>{{result.name}}</p>
+        <p>{{result.category}}</p>
+           
+  </div>
+
+
+{% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+         
+
+
+</div>
 </div>
   </div>
   </div>

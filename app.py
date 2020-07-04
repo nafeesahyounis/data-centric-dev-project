@@ -90,12 +90,15 @@ def logout():
 @app.route('/find_activity', methods=['GET', 'POST'])
 def find_activity(): 
     my_name= "Nafeesah2"
-    search_dict = {'city': request.form.get('city')} 
+    search_dict = {'city': request.form.get('city'), 'category': request.form.get('category')}
+    if request.form.get('name') != "":
+        name = {'name': request.form.get('name')}
+        search_dict.update(name)
     final_activities = list(mongo.db.things_to_do.find(search_dict))
     print(search_dict)
     print(my_name)
     print(final_activities)
-    return render_template("pages/findactivity.html", result=final_activities)
+    return render_template("pages/find.html", results=final_activities)
 
 @app.route('/managemylistings')
 def managemylistings():
