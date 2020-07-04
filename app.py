@@ -133,7 +133,7 @@ def update_activity(user_activity_id):
         
         })
 
-    return redirect(url_for('index'))
+    return redirect(url_for('managemylistings'))
 
     
 @app.route('/addactivity')
