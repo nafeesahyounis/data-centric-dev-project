@@ -10,7 +10,7 @@
 </div>
 <div class="container">
 <div class="row">
-    <form class="col s12" action=" {{url_for('insert_activity')}}" method="POST">
+    <form class="col s12 search-form" action=" {{url_for('insert_activity')}}" method="POST">
       <div class="row">
         <div class="input-field col s12">
           <input id="city" name="city" type="text" class="validate">
@@ -34,8 +34,26 @@
        <div class="row">
         <div class="input-field col s12">
           <input id="name" name="name" type="text" class="validate">
-          <label for="password">Name</label>
+          <label >Name</label>
         </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input type="text" class="validate">
+          <label>Description</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input type="text" class="validate">
+          <label>Open Hours</label>
+        </div>
+        <div class="row">
+        <div class="input-field col s12">
+          <input type="text" class="validate">
+          <label>Price</label>
+        </div>
+      </div>
       </div>
       
       
