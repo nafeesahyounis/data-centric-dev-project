@@ -160,7 +160,7 @@ def insert_activity():
    }
 )
     print(new_activity)
-    return redirect(url_for('index'))
+    return redirect(url_for('managemylistings'))
 
 
 
