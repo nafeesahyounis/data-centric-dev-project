@@ -34,7 +34,7 @@ def index():
         print(city_to_search)
         return redirect(url_for('findactivity'))
     else:
-        return render_template("pages/index.html", activities=mongo.db.things_to_do.find())
+        return render_template("pages/index.html")
     result = request.form.get('city')
     final_result = mongo.db.things_to_do.find_one({result})
     print(result)
