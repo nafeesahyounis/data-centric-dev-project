@@ -12,6 +12,22 @@ nav{
 /*background-image: linear-gradient(to top, #18435b, #133b51, #0e3348, #082b3f, #042436); */
 background-color:rgba(233, 154, 39, 0.8)
 }
+
+a{
+    color:#FFF7ED;
+}
+.input-field{
+    background-color:#FFF7ED;
+}
+
+.card-panel{
+        background-color:#FFF7ED;
+        text-align:center;
+
+
+
+}
+
 /* The hero image */
 .hero-image {
   /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
