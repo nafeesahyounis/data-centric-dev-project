@@ -32,7 +32,7 @@ def index():
         search_database = list(mongo.db.things_to_do.find({'city': city_to_search}))
         print(search_database)
         print(city_to_search)
-        return redirect(url_for('find'))
+        return render_template("pages/find.html", results = search_database)
     else:
         return render_template("pages/index.html")
     
