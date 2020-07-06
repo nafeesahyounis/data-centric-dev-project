@@ -24,23 +24,18 @@ app.secret_key = b'\x81\xa7\x9b\x8bq\x16x\x0b~A\x9c\xbb>\xe6\xef-'
 @app.route('/index', methods=["GET", "POST"])
 def index():
 
-    if 'email' in session:
-        print('we are in')
-        return render_template("pages/index.html") 
-    city_to_search = {'city': request.form.get('city')}
-    if (request.method == "POST"): 
-        search_database = list(mongo.db.things_to_do.find(city_to_search))
+ 
+   # city_to_search = {'city': request.form.get('city')}
+    city_to_search = request.form.get('city')
+
+    if (request.method == "POST"):
+        search_database = list(mongo.db.things_to_do.find({'city': city_to_search}))
         print(search_database)
         print(city_to_search)
-        return redirect(url_for('findactivity'))
+        return redirect(url_for('find'))
     else:
         return render_template("pages/index.html")
-    result = request.form.get('city')
-    final_result = mongo.db.things_to_do.find_one({result})
-    print(result)
-    print(final_result)
-    return redirect(url_for('pages/findactivity.html'))
-
+    
 
 @app.route('/find')
 def find():
