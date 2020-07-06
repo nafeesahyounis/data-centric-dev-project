@@ -55,8 +55,7 @@ def find_activity():
     final_result = list(mongo.db.things_to_do.find(mandatory_search_filters))
     return render_template("pages/find.html", 
                            results=final_result)
-
-
+                           
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -122,7 +121,8 @@ def managemylistings():
 def edit_activity(user_activity_id):
 
     if 'email' in session:
-        the_activity = mongo.db.things_to_do.find_one({"_id": ObjectId(user_activity_id)})
+        the_activity = mongo.db.things_to_do.find_one(
+            {"_id": ObjectId(user_activity_id)})
         categories = mongo.db.things_to_do.find()
         return render_template("pages/editactivity.html", 
                                user_activity=the_activity, 
@@ -136,13 +136,13 @@ def update_activity(user_activity_id):
         email = session['email']
         activities = mongo.db.things_to_do
         activities.update({'_id': ObjectId(user_activity_id)},
-        {
-            'user': email,
-            'name': request.form.get('name'),
-            'category': request.form.get('category'),
-            'city': request.form.get('city'),
-            'description': request.form.get('description')   
-        })
+                          {
+                            'user': email,
+                            'name': request.form.get('name'),
+                            'category': request.form.get('category'),
+                            'city': request.form.get('city'),
+                            'description': request.form.get('description')   
+                          })
 
     return redirect(url_for('managemylistings'))
 
@@ -163,19 +163,17 @@ def insert_activity():
     email = session['email']
     print(email)
     things_to_do = mongo.db.things_to_do
-    new_activity=things_to_do.insert_one(
-   {
-      'user': email,
-      'city': request.form.get('city'),
-      'category': request.form.get('category'),
-      'name': request.form.get('name'),
-      'description':request.form.get('description')
+    things_to_do.insert_one(
+                            {
+                             'user': email,
+                             'city': request.form.get('city'),
+                             'category': request.form.get('category'),
+                             'name': request.form.get('name'),
+                             'description': request.form.get('description')
 
-   }
-)
-    print(new_activity)
+                            }
+                           )
     return redirect(url_for('managemylistings'))
-
 
 
 if __name__ == '__main__':
