@@ -11,21 +11,28 @@
 <div class="container my-listings">
 <div class ="row">
 <div class="col s12"
+     <div class="card">
+        <div class="card-content black-text">
 {% if user_activities=="[]"%}
 <p>{{no_activities}}</p>
     {% else %}
     {% for user_activity in user_activities %}
-        <li> {{user_activity.city}}</li>
-           <li> {{user_activity.category}}</li>
-           <li> {{user_activity.name}}</li>
-            <li> {{user_activity.description}}</li>
+        
+         <span class="card-title"> {{user_activity.city}}</span>
+           <p>{{user_activity.category}} </p>
+           <p> {{user_activity.name}} </p>
+           <p> {{user_activity.description}}</p>
 
         <a class="waves-effect waves-light btn-large" href="{{url_for('edit_activity', user_activity_id=user_activity._id)}}">Edit</a>
 
-
+    <hr>
+       
 {% endfor %}
 
      {% endif %} 
+ </div>
+        </div>
+    
 </div>
 </div>
 </div>

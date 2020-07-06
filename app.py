@@ -158,6 +158,9 @@ def insert_activity():
       'category': request.form.get('category'),
       'name': request.form.get('name'),
       'description':request.form.get('description'),
+      'price': request.form.get('price'),
+      'monday': request.form.get('Monday'),
+      'tuesday':request.form.get('Tuesday')
 
    }
 )

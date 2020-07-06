@@ -46,6 +46,10 @@ a{
   background-size: cover;
   position: relative;
 }
+
+.results{
+    width:100vw;
+}
 .search-form{
     background-color:#FFF7ED;
     height:100vh;
