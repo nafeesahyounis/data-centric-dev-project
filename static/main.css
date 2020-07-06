@@ -48,6 +48,7 @@ a{
 }
 .search-form{
     background-color:#FFF7ED;
+    height:100vh;
 }
 .create-header-text{
     height:100%;
