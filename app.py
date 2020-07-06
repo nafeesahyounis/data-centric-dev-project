@@ -128,6 +128,8 @@ def update_activity(user_activity_id):
             'name': request.form.get('name'),
             'category': request.form.get('category'),
             'city': request.form.get('city'),
+            'description':request.form.get('description'),
+
         
         })
 
@@ -154,7 +156,9 @@ def insert_activity():
       'user': email,
       'city': request.form.get('city'),
       'category': request.form.get('category'),
-      'name': request.form.get('name')
+      'name': request.form.get('name'),
+      'description':request.form.get('description'),
+
    }
 )
     print(new_activity)

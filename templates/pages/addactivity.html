@@ -24,15 +24,14 @@
       
       <div class="row">
         <div class="input-field col s12">
-        <select id="category" name="category">
-      <option value="" disabled selected>Choose Category</option>
-       {% for cat in categories %}
-                      <option value="{{cat.category}}">{{cat.category}}</option>
-                  {% endfor %}
+    <select name="category">
+      <option value="" disabled selected>Choose your option</option>
+      <option value="food">food</option>
+      <option value="sports">sports</option>
+      <option value="3">art</option>
     </select>
     <label>Category</label>
-         
-        </div>
+  </div>
       </div>
        <div class="row">
         <div class="input-field col s12">
@@ -42,7 +41,7 @@
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input type="text" class="validate">
+          <input id="description" name="description" type="text" class="validate">
           <label>Description</label>
         </div>
       </div>
