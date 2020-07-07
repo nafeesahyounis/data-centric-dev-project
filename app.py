@@ -80,20 +80,13 @@ def find_activity():
 def login():
     users = mongo.db.users
     if request.method == 'POST':
-        collect_email = {'email': request.form.get('email')}
-        email_exists = users.find_one(collect_email)
+        email_exists = users.find_one({'email' : request.form['email']})
+
         if email_exists:
-            if bcrypt.hashpw(request.form.get('password').encode('utf-8'), email_exists['password'].encode('utf-8')) == email_exists('password').encode('utf-8'):
-            #collect_form_data = {'$and': [
-            #                    {'password': request.form.get('password')}, 
-            #                   {'email': collect_email}]}
-                session['email'] = request.form.get('email')
+            hashpass = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
+            users.insert({'email' : request.form['email'], 'password' : hashpass})
+            session['email'] = request.form['email']
             return redirect(url_for('index'))
-        else:
-            doesnt_exist = "Invalid username/password \
-            combination. \
-            Please try again, or register to make an account."
-            print(doesnt_exist)
             return render_template("pages/login.html",
                                    doesnt_exist=doesnt_exist)
     else:
