@@ -62,11 +62,18 @@ def find_activity():
         name = {'name': request.form.get('name')}
         mandatory_search_filters.update(name)
     final_result = list(mongo.db.things_to_do.find(mandatory_search_filters))
+    
+   # if mandatory_search_filters == [] and request.form.get('name') != "":
+   #     name = {'name': request.form.get('name')}
+   # only_name_result = list(mongo.db.things_to_do.find(mandatory_search_filters))
+
+    #print(only_name_result)
     print(final_result)
     no_results="No results found"
     return render_template("pages/find.html", 
                            results=final_result,
-                           no_results=no_results)
+                           no_results=no_results,
+                           )
                            
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -99,8 +106,11 @@ def register():
         existing_user = users.find_one({'email': request.form.get('email')})
 
         if existing_user is None:
-            hashpass = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
-            new_user = users.insert_one(request.form.to_dict())
+            hashpass = bcrypt.hashpw(request.form['password'].encode('utf-8'),bcrypt.gensalt())
+            new_user = users.insert_one({'first_name':request.form.get('first_name'),
+                                         'last_name':request.form.get('last_name'),
+                                         'email':request.form.get('email'),
+                                         'password':hashpass})
             session['email'] = request.form.get('email')
             print(new_user)
             return redirect(url_for('index'))
