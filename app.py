@@ -78,14 +78,14 @@ def find_activity():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    users = mongo.db.users
     if request.method == 'POST':
-        user = mongo.db.users.find_one({'name': request.form.get('name')})
         collect_email = {'email': request.form.get('email')}
-        email_exists = mongo.db.users.find_one(collect_email)
+        email_exists = users.find_one(collect_email)
         if email_exists:
             collect_form_data = {'$and': [
                                 {'password': request.form.get('password')}, 
-                                {'email': request.form.get('email')}]}
+                                {'email': collect_email}]}
             session['email'] = request.form.get('email')
             return redirect(url_for('index'))
         else:
@@ -107,10 +107,11 @@ def register():
 
         if existing_user is None:
             hashpass = bcrypt.hashpw(request.form['password'].encode('utf-8'),bcrypt.gensalt())
-            new_user = users.insert_one({'first_name':request.form.get('first_name'),
-                                         'last_name':request.form.get('last_name'),
-                                         'email':request.form.get('email'),
-                                         'password':hashpass})
+            new_user = users.insert_one({
+                                         'first_name': request.form.get('first_name'),
+                                         'last_name': request.form.get('last_name'),
+                                         'email': request.form.get('email'),
+                                         'password': hashpass})
             session['email'] = request.form.get('email')
             print(new_user)
             return redirect(url_for('index'))
