@@ -83,15 +83,16 @@ def login():
         collect_email = {'email': request.form.get('email')}
         email_exists = users.find_one(collect_email)
         if email_exists:
-            collect_form_data = {'$and': [
-                                {'password': request.form.get('password')}, 
-                                {'email': collect_email}]}
-            session['email'] = request.form.get('email')
+            if bcrypt.hashpw(request.form.get('password').encode('utf-8'), email_exists['password'].encode('utf-8')) == email_exists('password').encode('utf-8'):
+            #collect_form_data = {'$and': [
+            #                    {'password': request.form.get('password')}, 
+            #                   {'email': collect_email}]}
+                session['email'] = request.form.get('email')
             return redirect(url_for('index'))
         else:
             doesnt_exist = "Invalid username/password \
             combination. \
-            Please try again, or register to make an account"
+            Please try again, or register to make an account."
             print(doesnt_exist)
             return render_template("pages/login.html",
                                    doesnt_exist=doesnt_exist)
@@ -113,6 +114,8 @@ def register():
                                          'email': request.form.get('email'),
                                          'password': hashpass})
             session['email'] = request.form.get('email')
+            session['user'] = request.form.get('first_name', 'last_name')
+            print(session['user'])
             print(new_user)
             return redirect(url_for('index'))
         return 'That Username Already Exists!'
