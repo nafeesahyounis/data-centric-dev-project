@@ -5,6 +5,7 @@ from flask_pymongo import PyMongo
 from os import path
 from bson.objectid import ObjectId
 from bson.json_util import dumps
+import json 
 import bcrypt
 if path.exists("env.py"):
     import env
@@ -28,10 +29,12 @@ def index():
     the user will be redirected to the search activity page \
     and results will be displayed. 
     """
-    search_bar = request.form.get('city')
+    search_bar_original = request.form.get('city')
+    convert_to_lowercase_string = json.dumps(search_bar_original).lower()
+    result = json.loads(convert_to_lowercase_string)
     if (request.method == 'POST'):
         search_database = list(
-            mongo.db.things_to_do.find({'city': search_bar}))
+            mongo.db.things_to_do.find({'city': result}))
         return render_template('pages/find.html',
                                results=search_database)
     else:
