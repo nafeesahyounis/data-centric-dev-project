@@ -38,6 +38,10 @@ def index():
         return render_template('pages/index.html')    
 
 
+@app.route('/permissiondenied')
+def permissiondenied():
+    return render_template('pages/permissiondenied.html')
+
 @app.route('/find')
 def find():
     return render_template('pages/find.html')
@@ -79,18 +83,18 @@ def find_activity():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     users = mongo.db.users
-    if request.method == 'POST':
-        email_exists = users.find_one({'email' : request.form['email']})
+    email_exists = users.find_one({'email' : request.form.get('email')})
 
-        if email_exists:
-            hashpass = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
-            users.insert({'email' : request.form['email'], 'password' : hashpass})
+    if email_exists:
+        if bcrypt.hashpw(request.form['password'].encode('utf-8'), email_exists['password'].encode('utf-8')) == email_exists['password'].encode('utf-8'):
             session['email'] = request.form['email']
             return redirect(url_for('index'))
-            return render_template("pages/login.html",
-                                   doesnt_exist=doesnt_exist)
-    else:
-        return render_template("pages/login.html")
+    doesnt_exist = "Invalid username/password \
+            combination. \
+            Please try again, or register to make an account"
+    print(doesnt_exist)
+    return render_template("pages/login.html",
+                            doesnt_exist=doesnt_exist)
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -134,7 +138,7 @@ def managemylistings():
         return render_template("pages/managemylistings.html", 
                                user_activities=user_activities, 
                                no_activities=no_activities)
-    return("Permission Denied")
+    return render_template("pages/permissiondenied.html")
     
 
 @app.route('/edit_activity/<user_activity_id>')
@@ -147,7 +151,7 @@ def edit_activity(user_activity_id):
         return render_template("pages/editactivity.html", 
                                user_activity=the_activity, 
                                categories=categories)
-    return 'Permission Denied'
+    return render_template("pages/permissiondenied.html")
 
  
 @app.route('/update_activity/<user_activity_id>', methods=['POST'])
@@ -174,7 +178,7 @@ def addactivity():
         return render_template("pages/addactivity.html", 
                                categories=mongo.db.things_to_do.find())
     else:
-        return "Permission Denied"
+        return render_template("pages/permissiondenied.html")
 
 
 @app.route('/insert_activity', methods=['POST'])
