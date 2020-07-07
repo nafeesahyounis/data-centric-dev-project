@@ -62,8 +62,11 @@ def find_activity():
         name = {'name': request.form.get('name')}
         mandatory_search_filters.update(name)
     final_result = list(mongo.db.things_to_do.find(mandatory_search_filters))
+    print(final_result)
+    no_results="No results found"
     return render_template("pages/find.html", 
-                           results=final_result)
+                           results=final_result,
+                           no_results=no_results)
                            
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -118,7 +121,7 @@ def managemylistings():
     if 'email' in session:
         user = session['email']
         user_activities = list(mongo.db.things_to_do.find({'user': user}))
-        no_activities = "There are no activities"
+        no_activities = "You don't have any existing activities. Would you like to create some?"
         print(no_activities)
         print(user_activities)
         return render_template("pages/managemylistings.html", 

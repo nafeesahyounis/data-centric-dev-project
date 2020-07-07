@@ -8,13 +8,16 @@
   </div>
 </div>
 <main class="background">
-<div class="container my-listings">
+<div class="my-listings container">
 <div class ="row">
-<div class="col s12"
+<div class="col s12">
      <div class="card">
         <div class="card-content black-text">
-{% if user_activities=="[]"%}
-<p>{{no_activities}}</p>
+{% if user_activities == []%}
+<span class="card-title"><p>{{no_activities}}</p></span>
+<button class="btn waves-effect waves-light"><a href="{{url_for('addactivity')}}">Create Activities</a></button>
+
+
     {% else %}
     {% for user_activity in user_activities %}
         
