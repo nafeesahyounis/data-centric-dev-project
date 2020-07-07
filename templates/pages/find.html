@@ -52,21 +52,17 @@
       <div class="card">
         <div class="card-content black-text">
 
-        {% if results==[]%}
-        <span class="card-title">{{no_results}}</span>
-        {% else %}
-
+        
+    <p> There are {{results|length}} results that match your query.</p>
         {% for result in results %}
         
-
         <span class="card-title">{{result.city|capitalize}}</span>
 
-          <p>{{result.name}}</p>
+          <p>{{result.name|capitalize}}</p>
         <p>{{result.category}}</p>
                 <p>{{result.description}}</p>
         <hr>
               {% endfor %}
-        {% endif %} 
 
                </div>
       </div>
