@@ -32,6 +32,21 @@
         </span>
       </div>
     </div>
+    {% if 'email' in session %}
+
+    <div class="col s6 m5">
+      <div class="card-panel">
+        <span class="black-text">
+        <p>Do you have travel experiences and activities you want to share with other travellers?
+        Then why not add to our collection? Or you can also manage your existing activities. </p>
+        <button class="btn waves-effect waves-light"><a href="{{url_for('addactivity')}}">Create Activities</a></button>
+         <button class="btn waves-effect waves-light"><a href="{{url_for('managemylistings')}}">Manage My Listings </a> </button>
+
+        </span>
+      </div>
+    </div>
+    {% else %}
+
     <div class="col s6 m5">
       <div class="card-panel">
         <span class="black-text">
@@ -43,7 +58,8 @@
         </span>
       </div>
     </div>
-    
+    {% endif %}
+
     
   </div>
       </div>      

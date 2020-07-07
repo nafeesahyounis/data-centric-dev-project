@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, redirect, session, request, \
+from flask import Flask, flash, render_template, redirect, session, request, \
      url_for
 from flask_pymongo import PyMongo
 from os import path
@@ -45,6 +45,15 @@ def find():
 
 @app.route('/find_activity', methods=['GET', 'POST'])
 def find_activity(): 
+    """
+    User must type the name of a city and choose a category\
+    Mongodb will be searched and all entries matching both the \
+    city and category will be returned and displayed on \
+    the find.html page. If user wants to also search for \
+    additional filters like 'name', an if statement is used \
+    and if the name field isn't empty, it's value will be \
+    added to the search.
+    """
     # form filters will not work if city and category are not specified.
     mandatory_search_filters = {'city': request.form.get('city'), 
                                 'category': request.form.get('category')}
@@ -100,6 +109,7 @@ def register():
 @app.route('/logout')
 def logout():
     session.clear()
+    flash(f'Thank you for using Oly-Track. See you soon.', 'primary')
     return redirect(url_for('index'))
 
 
