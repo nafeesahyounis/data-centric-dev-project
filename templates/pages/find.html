@@ -1,90 +1,63 @@
 {% extends 'layout/base.html' %}
 {% block content %}
 <main>
-<div class="hero-image-find">
-  <div class="hero-text">
-    <h1 style="font-family: 'Shadows Into Light', cursive; color:">Search Activity </h1>
-        <p> Search for an activity by entering a city and a category. Remember to enter BOTH city and category, otherwise our search filter might get a teenie bit confused and return nothing. </p>
-
-    
-  </div>
-</div>
-<div class="container-fluid">
-<div class ="row">
-<div class ="col s4">
-<div class="row search-form">
-    <form class="col s12" action="{{url_for('find_activity')}}" method="POST">
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="city" name="city" type="text" class="validate">
-          <label for="password">City</label>
-        </div>
+   <div class="hero-image-find">
+      <div class="hero-text">
+         <h1 style="font-family: 'Shadows Into Light', cursive; color:">Search Activity </h1>
+         <p> Search for an activity by entering a city and a category. Remember to enter BOTH city and category, otherwise our search filter might get a teenie bit confused and return nothing. </p>
       </div>
-       
-      
-      <div class="row">
-        <div class="input-field col s12">
-    <select name="category">
-      <option value="" disabled selected>Choose your option</option>
-      <option value="food">food</option>
-      <option value="sport">sport</option>
-      <option value="3">art</option>
-    </select>
-    <label>Category</label>
-  </div>
-      </div>
-       <div class="row">
-        <div class="input-field col s12">
-          <input id="name" name="name" type="text" class="validate">
-          <label for="password">Name</label>
-        </div>
-      </div>
-      <button class="btn waves-effect waves-light" type="submit" name="action">Search Activity
-    <i class="material-icons right">send</i>
-  </button>
-      
-      </div>
-      
-    </form>
-</div>
-<div class="col s8 results"> 
-<div class="m6">
-      <div class="card">
-        <div class="card-content black-text">
-
-        
-    <p> There are {{results|length}} results that match your query.</p>
-        {% for result in results %}
-        
-        <span class="card-title">{{result.city|capitalize}}</span>
-
-          <p>{{result.name|capitalize}}</p>
-        <p>{{result.category|capitalize}}</p>
-                <p>{{result.description|capitalize}}</p>
-        <hr>
-              {% endfor %}
-
+   </div>
+   <div class="container-fluid">
+      <div class ="row">
+         <div class ="col s4">
+            <div class="row search-form">
+               <form class="col s12" action="{{url_for('find_activity')}}" method="POST">
+                  <div class="row">
+                     <div class="input-field col s12">
+                        <input id="city" name="city" type="text" class="validate">
+                        <label for="password">City</label>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="input-field col s12">
+                        <select name="category">
+                           <option value="" disabled selected>Choose your option</option>
+                           <option value="food">food</option>
+                           <option value="sport">sport</option>
+                           <option value="3">art</option>
+                        </select>
+                        <label>Category</label>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="input-field col s12">
+                        <input id="name" name="name" type="text" class="validate">
+                        <label for="password">Name</label>
+                     </div>
+                  </div>
+                  <button class="btn waves-effect waves-light" type="submit" name="action">Search Activity
+                  <i class="material-icons right">send</i>
+                  </button>
+            </div>
+            </form>
+         </div>
+         <div class="col s8 results">
+            <div class="m6">
+               <div class="card">
+                  <div class="card-content black-text">
+                     <p> There are {{results|length}} results that match your query.</p>
+                     {% for result in results %}
+                     <span class="card-title">{{result.city|capitalize}}</span>
+                     <p>{{result.name|capitalize}}</p>
+                     <p>{{result.category|capitalize}}</p>
+                     <p>{{result.description|capitalize}}</p>
+                     <hr>
+                     {% endfor %}
+                  </div>
                </div>
+            </div>
+         </div>
       </div>
-    </div>
-     
-  </div>
-
-
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-
-
-         
-
-
-</div>
-</div>
-  </div>
-  </div>
+   </div>
 </main>
 {% endblock %}
