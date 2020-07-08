@@ -100,16 +100,19 @@ def login():
         email = request.form['email']
         user = mongo.db.users.find_one({'email': email})
         user_password = user['password']
+        print(user_password)
         form_password = request.form['password']
         if pbkdf2_sha256.verify(form_password, user_password):
             session['email'] = request.form['email']
+            my_name = "Nafeesah"
+            print(my_name)
             return redirect(url_for('index'))
         else:
             doesnt_exist = "Invalid username/password \
             combination. \
             Please try again, or register to make an account"
+
             return render_template('pages/login.html', doesnt_exist=doesnt_exist)
-    return render_template('pages/login.html', doesnt_exist=doesnt_exist)
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -187,6 +190,12 @@ def update_activity(user_activity_id):
     return redirect(url_for('managemylistings'))
 
     
+@app.route('/delete_activity/<user_activity_id>')
+def delete_activity(user_activity_id):
+    mongo.db.things_to_do.remove({'_id': ObjectId(user_activity_id)})
+    return redirect(url_for('managemylistings'))
+
+
 @app.route('/addactivity')
 def addactivity():
 
