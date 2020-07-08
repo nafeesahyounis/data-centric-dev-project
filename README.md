@@ -51,4 +51,13 @@ Business user goals are:
 
 - For the end user to easily be able to find my listings through searching via the city and/or the category.
 
+The Solo-Traveller-Handbook currently caters towards those needs in the following ways:
+
+- Due to its easy-to-use interface and simple form layout, businesses can easily create an account and start creating listings immediately.
+
+- Listings created by a business are automatically and immediately added to the global database, so potential clients can see the business straight away when they search.
+
+- The 'Manage my Listings' page allows the business to go back to any listings he or she has created and make edits at any time, or delete. 
+
+- 
 
