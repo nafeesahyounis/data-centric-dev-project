@@ -36,3 +36,15 @@ The Solo-Traveller Handbook is a great way to meet these needs because:
 ### Business Goals
 
 The target businesses for this site are both small and big business owners. They can use the site to recommend their restaurants, experiences etc to other travellers. 
+
+### Business User Goals
+
+Business user goals are:
+
+- A functional, clean and appealing-to-the eye site upon which I can advertise my business.
+
+- The ability to easily and efficiently add data about my services.
+
+- For the end user to easily be able to find my listings through searching via the city and/or the category.
+
+

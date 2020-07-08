@@ -94,22 +94,22 @@ def find_activity():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    users = mongo.db.users
-    email = request.form.get('email')
-    email_exists = users.find_one({'email' : email})
-    user_password = users['password']
-    form_password = request.form.get('password')
-
-    if email_exists:
+    if request.method == "GET":
+        return render_template('pages/login.html')
+    elif request.method == "POST":
+        email = request.form['email']
+        user = mongo.db.users.find_one({'email': email})
+        user_password = user['password']
+        form_password = request.form['password']
         if pbkdf2_sha256.verify(form_password, user_password):
             session['email'] = request.form['email']
             return redirect(url_for('index'))
+        else:
             doesnt_exist = "Invalid username/password \
             combination. \
             Please try again, or register to make an account"
-    print(doesnt_exist)
-    return render_template("pages/login.html",
-                            doesnt_exist=doesnt_exist)
+            return render_template('pages/login.html', doesnt_exist=doesnt_exist)
+    return render_template('pages/login.html', doesnt_exist=doesnt_exist)
 
 
 @app.route('/register', methods=['GET', 'POST'])
