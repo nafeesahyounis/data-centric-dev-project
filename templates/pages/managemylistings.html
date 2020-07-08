@@ -1,43 +1,37 @@
 {% extends 'layout/base.html' %}
 {% block content %}
 <div class="hero-image-find" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('static/images/lighthouse.png')">
-<div class="hero-text">
-    <h1 style="font-family: 'Shadows Into Light', cursive; color:">Manage My Listings </h1>
-    <p> Listed below are all of the activities you have created. </p>
-    <p> Want to Create another one? <a class="waves-effect waves-light btn-small" href="{{url_for('addactivity')}}">Create New Activity</a></p>
-  </div>
+   <div class="hero-text">
+      <h1 style="font-family: 'Shadows Into Light', cursive; color:">Manage My Listings </h1>
+      <p> Listed below are all of the activities you have created. </p>
+      <p> Want to Create another one? <a class="waves-effect waves-light btn-small" href="{{url_for('addactivity')}}">Create New Activity</a></p>
+   </div>
 </div>
 <main class="background">
-<div class="my-listings container">
-<div class ="row">
-<div class="col s12">
-     <div class="card">
-        <div class="card-content black-text">
-{% if user_activities == []%}
-<span class="card-title"><p>{{no_activities}}</p></span>
-<button class="btn waves-effect waves-light"><a href="{{url_for('addactivity')}}">Create Activities</a></button>
-
-
-    {% else %}
-    {% for user_activity in user_activities %}
-        
-         <span class="card-title"> {{user_activity.city|capitalize}}</span>
-           <p>{{user_activity.category|capitalize}} </p>
-           <p> {{user_activity.name|capitalize}} </p>
-           <p> {{user_activity.description|capitalize}}</p>
-
-        <a class="waves-effect waves-light btn-large" href="{{url_for('edit_activity', user_activity_id=user_activity._id)}}">Edit</a>
-
-    <hr>
-       
-{% endfor %}
-
-     {% endif %} 
- </div>
-        </div>
-    
-</div>
-</div>
-</div>
- </main>   
+   <div class="my-listings container">
+      <div class ="row">
+         <div class="col s12">
+            <div class="card">
+               <div class="card-content black-text">
+                  {% if user_activities == []%}
+                  <span class="card-title">
+                     <p>{{no_activities}}</p>
+                  </span>
+                  <button class="btn waves-effect waves-light"><a href="{{url_for('addactivity')}}">Create Activities</a></button>
+                  {% else %}
+                  {% for user_activity in user_activities %}
+                  <span class="card-title"> {{user_activity.city|capitalize}}</span>
+                  <p>{{user_activity.category|capitalize}} </p>
+                  <p> {{user_activity.name|capitalize}} </p>
+                  <p> {{user_activity.description|capitalize}}</p>
+                  <a class="waves-effect waves-light btn-large" href="{{url_for('edit_activity', user_activity_id=user_activity._id)}}">Edit</a>
+                  <hr>
+                  {% endfor %}
+                  {% endif %} 
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</main>
 {% endblock %}
