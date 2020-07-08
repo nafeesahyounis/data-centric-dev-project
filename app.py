@@ -5,6 +5,7 @@ from flask_pymongo import PyMongo
 from os import path
 from bson.objectid import ObjectId
 from bson.json_util import dumps
+from passlib.hash import pbkdf2_sha256
 import json 
 import bcrypt
 if path.exists("env.py"):
@@ -24,7 +25,10 @@ app.secret_key = b'\x81\xa7\x9b\x8bq\x16x\x0b~A\x9c\xbb>\xe6\xef-'
 def index():
     """
     User can type the city into the search bar \
-    and hit submit. \
+    and hit submit. \ Mongodb is case sensitive\
+    so for input is first converted to a lowercase string\
+    and then returned as lowercase as the database is entirely\
+    in lowercase.\
     If database entry matches city name, 
     the user will be redirected to the search activity page \
     and results will be displayed. 
@@ -86,13 +90,16 @@ def find_activity():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     users = mongo.db.users
-    email_exists = users.find_one({'email' : request.form.get('email')})
+    email = request.form.get('email')
+    email_exists = users.find_one({'email' : email})
+    user_password = users['password']
+    form_password = request.form.get('password')
 
     if email_exists:
-        if bcrypt.hashpw(request.form['password'].encode('utf-8'), email_exists['password'].encode('utf-8')) == email_exists['password'].encode('utf-8'):
+        if pbkdf2_sha256.verify(form_password, user_password):
             session['email'] = request.form['email']
             return redirect(url_for('index'))
-    doesnt_exist = "Invalid username/password \
+            doesnt_exist = "Invalid username/password \
             combination. \
             Please try again, or register to make an account"
     print(doesnt_exist)
@@ -107,12 +114,13 @@ def register():
         existing_user = users.find_one({'email': request.form.get('email')})
 
         if existing_user is None:
-            hashpass = bcrypt.hashpw(request.form['password'].encode('utf-8'),bcrypt.gensalt())
+            password = request.form['password']
+            _hash = pbkdf2_sha256.hash(password)
             new_user = users.insert_one({
                                          'first_name': request.form.get('first_name'),
                                          'last_name': request.form.get('last_name'),
                                          'email': request.form.get('email'),
-                                         'password': hashpass})
+                                         'password': _hash})
             session['email'] = request.form.get('email')
             session['user'] = request.form.get('first_name', 'last_name')
             print(session['user'])
