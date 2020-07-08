@@ -110,8 +110,6 @@ def login():
         form_password = request.form['password']
         if pbkdf2_sha256.verify(form_password, user_password):
             session['email'] = request.form['email']
-            my_name = "Nafeesah"
-            print(my_name)
             return redirect(url_for('index'))
         else:
             return render_template('pages/login.html',

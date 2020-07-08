@@ -41,6 +41,9 @@
 
       
 </nav>
+
+{% block content %}
+        {% endblock %}
 <script type="text/javascript">
     $(document).ready(function(){
     $('select').material_select();
@@ -51,10 +54,28 @@
 <script src="static/main.js">
 
 </script>
-
+<footer>
+          <div class="container">
+            <div class="row">
+              <div class="col s12">
+                
+                <h5 class="white-text">Links</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                </ul>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2014 Copyright Text
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+          </div>
+        </footer>
 </body>
 
 </html>
 
-{% block content %} 
-    {% endblock %}
