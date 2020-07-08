@@ -94,11 +94,17 @@ def find_activity():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    doesnt_exist = "Invalid username/password \
+            combination. \
+            Please try again, or register to make an account"
     if request.method == "GET":
         return render_template('pages/login.html')
     elif request.method == "POST":
         email = request.form['email']
         user = mongo.db.users.find_one({'email': email})
+        if user is None:
+             return render_template('pages/login.html',
+                                  doesnt_exist=doesnt_exist)
         user_password = user['password']
         print(user_password)
         form_password = request.form['password']
@@ -108,11 +114,8 @@ def login():
             print(my_name)
             return redirect(url_for('index'))
         else:
-            doesnt_exist = "Invalid username/password \
-            combination. \
-            Please try again, or register to make an account"
-
-            return render_template('pages/login.html', doesnt_exist=doesnt_exist)
+            return render_template('pages/login.html',
+                                  doesnt_exist=doesnt_exist)
 
 
 @app.route('/register', methods=['GET', 'POST'])
