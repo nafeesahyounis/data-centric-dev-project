@@ -59,5 +59,30 @@ The Solo-Traveller-Handbook currently caters towards those needs in the followin
 
 - The 'Manage my Listings' page allows the business to go back to any listings he or she has created and make edits at any time, or delete. 
 
-- 
+- Navigation buttons are placed on every page, so it is easy for the business user to quickly and efficiently achieve their goals.
 
+### Solo-Traveller-Handbook Goals
+
+- To provide a clean, clear site where solo-travellers can access recommendations made by locals, small business owners and other solo-travellers.
+
+- As a developer, I wanted to practice combining Front-end & Backend languages and this is my first project doing so. I wanted to experiment with HTML, CSS, Bootstrap and Javascript combined with Python, MongoDB, Flask and Jinja.
+
+- Although this is a student project, in the future I would like to expand the filters and potentially create a space that can be used by the solo-travel Facebook communities I am a part of to consolidate all of the information that is shared.
+
+## User Stories
+
+### Visitor Stories
+
+As someone who is visiting the Solo-Traveller-Handbook, I want to:
+
+- Immediately know what the site is for and what are the different features/things I can do on the site.
+
+- Enjoy navigating the site. Be able to navigate it with ease and not feel frustrated by inconsistencies or a lack of buttons.
+
+- Have something beautiful yet not overwhelming to look at, in order to inspire me to travel.
+
+- Be able to search for what I need immediately, without too much navigation and without having to read through too much information.
+
+- As someone who is travelling and may not have a larger device, I want to be able to search for things easily on my phone or tablet.
+
+- 
