@@ -68,11 +68,16 @@ def find_activity():
     # form filters will not work if city and category are not specified.
     mandatory_search_filters = {'city': request.form.get('city'), 
                                 'category': request.form.get('category')}
+    convert_to_lowercase_string = json.dumps(mandatory_search_filters).lower()
+    print(convert_to_lowercase_string)
+    result = json.loads(convert_to_lowercase_string)
     # if user also specifies name, this will be added to the search filters
     if request.form.get('name') != "":
         name = {'name': request.form.get('name')}
-        mandatory_search_filters.update(name)
-    final_result = list(mongo.db.things_to_do.find(mandatory_search_filters))
+     #   lowercase_name = json.dumps(name).lower()
+     #   final_name = json.loads(lowercase_name)
+        result.update(name)
+    final_result = list(mongo.db.things_to_do.find(result))
     
    # if mandatory_search_filters == [] and request.form.get('name') != "":
    #     name = {'name': request.form.get('name')}
