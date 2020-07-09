@@ -122,3 +122,29 @@ The Solo-Traveller-Handbook has an overall feeling of adventure and exploration.
 <div align="center">
     <img src="/static/images/hero-images.jpg" target="_blank" rel="noopener" alt="Image of how home page looks on all screen sizes" aria-label="Image of how home page looks on all screen sizes" />
 </div>
+
+The following three hero images/illustrations were chosen for the Home, Search & Add Activity Pages respectively. These three images were chosen as they immediately draw the eye of the user, and therefore enhance the user experience.
+
+I opted for illustrations instead of photographs as I felt that they gave the site a more individual feel and a more distinctive brand.
+
+- The Hero Image for the index page (the solo traveller looking out at a landscape) was selected because it evoked a sense of adventure and mystery. I felt that from a design perspective it captured the essence of the site.
+
+- The Hero Image for the Search Page (the person on the motorcycle) was chosen firstly because it aligned with the colour scheme, and secondly because the illustration matched the theme of the main page image. It also aligned with the idea of an activity that you'd do while travelling, and therefore created a visual image of 'discovering things to do on holiday'.
+
+- The Hero Image for the Create Page was selected because of its aesthetic value and how it visually fit in with the theme. I also felt that the colour scheme creates an inspiring feeling, which would make users want to create and contribute to the site.
+
+
+## Wireframes
+
+## Flowchart
+
+## Development Planes
+
+# Features
+## Existing Features
+
+
+
+
+
+
