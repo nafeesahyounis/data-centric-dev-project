@@ -113,7 +113,12 @@ The Solo-Traveller-Handbook has an overall feeling of adventure and exploration.
 
 ### Fonts
 
+- The font 'Arimo', sans-serif' was used for the main content of the site, because I felt that it was very clear and bold without detracting too much from the overall design. It is also easy to read on smaller screen sizes.
 
+- The font 'Shadows Into Light', cursive; has been used for the headers throughout the site, as I felt that it gave a fun, adventurous feel to the titles and fit nicely with the hero images. 
 
+### Hero images
 
-
+<div align="center">
+    <img src="/static/images/hero-images.jpg" target="_blank" rel="noopener" alt="Image of how home page looks on all screen sizes" aria-label="Image of how home page looks on all screen sizes" />
+</div>

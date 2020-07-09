@@ -2,9 +2,9 @@
 {% block content %}
 <div class="hero-image-find" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('static/images/lighthouse.png')">
    <div class="hero-text">
-      <h1 style="font-family: 'Shadows Into Light', cursive; color:">Manage My Listings </h1>
-      <p> Listed below are all of the activities you have created. </p>
-      <p> Want to Create another one? <a class="waves-effect waves-light btn-small" href="{{url_for('addactivity')}}">Create New Activity</a></p>
+      <h1>Manage My Listings </h1>
+      <p class="header-text"> Listed below are all of the activities you have created. </p>
+      <p class="header-text"> Want to Create another one? <a class="waves-effect waves-light btn-small" href="{{url_for('addactivity')}}">Create New Activity</a></p>
    </div>
 </div>
 <main class="background">
@@ -15,7 +15,7 @@
                <div class="card-content black-text">
                   {% if user_activities == []%}
                   <span class="card-title">
-                     <p>{{no_activities}}</p>
+                     <p class="header-text-createpage">{{no_activities}}</p>
                   </span>
                   <button class="btn waves-effect waves-light"><a href="{{url_for('addactivity')}}">Create Activities</a></button>
                   {% else %}
@@ -32,7 +32,7 @@
                   <!-- Modal Structure -->
                   <div id="deletemodal" class="modal">
                   <div class="modal-content">
-                  <p>Are you sure you want to delete this listing?</p>
+                  <p class="header-text">Are you sure you want to delete this listing?</p>
                   </div>
                   <div class="modal-footer">
                   <a class="waves-effect waves-light btn-large modal-close" href="{{url_for('delete_activity', user_activity_id=user_activity._id)}}">Yes</a>
