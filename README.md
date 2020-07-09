@@ -85,4 +85,33 @@ As someone who is visiting the Solo-Traveller-Handbook, I want to:
 
 - As someone who is travelling and may not have a larger device, I want to be able to search for things easily on my phone or tablet.
 
-- 
+- As a traveller with a limited budget, I want to be able to find recommendations that aren't expensive to access.
+
+- As a user of the site, I would like to be able to contact the creator of the site easily and quickly if I encounter any issues.
+
+### Business Stories
+
+As a business owner:
+
+- As a business owner, I would like to be able to create my listing quickly and easily.
+
+- As a business owner, I would like visitors to be able to see my listing ASAP so that I can quickly generate traffic.
+
+- As a business owner, I would like to be able to manage my listings and edit or delete them as I please.
+
+- As a business owner, I would like to be able to contact the creator of the site easily in case I encounter any problems. 
+
+- As a business owner, I would like my data to be safe and not accessible to anyone.
+
+- As a business owner, I would like an easy to use interface that I can navigate within a few clicks.
+
+- As a business owner, I would like the platform that I advertise on to be aesthetically pleasing and inspire my potential customers to travel and search.
+
+## Design Choices
+
+The Solo-Traveller-Handbook has an overall feeling of adventure and exploration. This is in order to inspire the users of the site to travel and contribute to the handbook.
+
+### Fonts
+
+
+

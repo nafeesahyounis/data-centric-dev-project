@@ -21,6 +21,10 @@ body, html {
     
 }
 
+h1{
+    font-family: 'Shadows Into Light', cursive; 
+}
+
 .background{
     background-color:rgba(102, 133, 152, 0.9);
 }
