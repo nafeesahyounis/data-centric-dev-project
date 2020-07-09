@@ -5,9 +5,7 @@
   and (max-device-width: 812px)
   and (-webkit-min-device-pixel-ratio: 2) {
 
-p{
-    font-size:1.5em;
-}
+
 
 }
 
@@ -36,10 +34,6 @@ background-color:rgba(233, 154, 39, 0.8)
 footer{
     background-color:rgba(0, 82, 72, 0.7);
 }
-p{
-    font-size:8vw, 8vh;
-
-}
 a{
     color:#FFF7ED;
 }
@@ -54,6 +48,19 @@ a{
 
 
 
+}
+
+.header-text{
+font-family: 'Arimo', sans-serif;
+    font-size:8vw, 8vh;
+    font-size:2em;
+
+}
+
+.header-text-createpage{
+font-family: 'Arimo', sans-serif;
+    font-size:8vw, 8vh;
+    font-size:1em;
 }
 
 /* The hero image */

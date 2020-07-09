@@ -3,7 +3,7 @@
 <div class="hero-image" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('static/images/traveller.jpg')">
    <div class="hero-text">
       <h1>Welcome </h1>
-      <p>Tired of rifling through travel guides, websites and blogs for activities that suit your needs as a solo-traveller? Then you're in the right place. The Solo-Traveller Handbook finds activities in your city of choice recommended by solo-travellers for solo-travellers.</p>
+      <p class="header-text">Tired of rifling through travel guides, websites and blogs for activities that suit your needs as a solo-traveller? Then you're in the right place. The Solo-Traveller Handbook finds activities in your city of choice recommended by solo-travellers for solo-travellers.</p>
       <div class="row search-bar">
          <form class="col s12" action="{{url_for('index')}}" method="POST">
             <div class="row">
@@ -23,8 +23,8 @@
       <div class="col s6 m5">
          <div class="card-panel">
             <span class="black-text">
-               <p> Use the search bar above to filter by city. </p>
-               <p> Want more search filters? Then go to our search page. </p>
+               <p class="header-text-createpage"> Use the search bar above to filter by city. </p>
+               <p class="header-text-createpage"> Want more search filters? Then go to our search page. </p>
                <button class="btn waves-effect waves-light"> <a href="{{url_for('find')}}">Start Searching Now</a>
                </button>
             </span>
@@ -34,7 +34,7 @@
       <div class="col s6 m5">
          <div class="card-panel">
             <span class="black-text">
-               <p>Do you have travel experiences and activities you want to share with other travellers?
+               <p class="header-text-createpage">Do you have travel experiences and activities you want to share with other travellers?
                   Then why not add to our collection? Or you can also manage your existing activities. 
                </p>
                <button class="btn waves-effect waves-light"><a href="{{url_for('addactivity')}}">Create Activities</a></button>
