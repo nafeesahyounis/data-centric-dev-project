@@ -11,7 +11,7 @@ body {
 main {
 	flex: 1 0 auto;
 }
-
+ 
 
 
 h1 {
@@ -53,13 +53,13 @@ a {
 
 .header-text {
 	font-family: 'Arimo', sans-serif;
-	font-size: 8vh;
+	/*font-size: 8vh; */
 	font-size: 2em;
 }
 
 .header-text-createpage {
 	font-family: 'Arimo', sans-serif;
-	font-size: 8vw, 8vh;
+	/*font-size: 8vw, 8vh; */
 	font-size: 1em;
 }
 
