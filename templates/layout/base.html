@@ -9,7 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Arimo&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}" type="text/css">
 </head>
+
 <body>
+<header>
     <nav>
         <div class="nav-wrapper">
             <a href="{{url_for('index')}}" class="brand-logo" style="font-family: 'Shadows Into Light', cursive; color: #062136;">The Solo-Traveller Handbook</a>
@@ -29,9 +31,13 @@
             </ul>
         </div>
     </nav>
+    </header>
+
+    <main>
 
     {% block content %}
     {% endblock %}
+    </main>
 
     <footer>
         <div class="container">

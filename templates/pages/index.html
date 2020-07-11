@@ -1,15 +1,14 @@
 {% extends 'layout/base.html' %}
 {% block content %}
-<header><div class="hero-image" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('static/images/traveller.jpg')">
+<div class="hero-image" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('static/images/traveller.jpg')">
    <div class="hero-text">
       <h1>Welcome </h1>
       <p class="header-text">Tired of rifling through travel guides, websites and blogs for activities that suit your needs as a solo-traveller? Then you're in the right place. The Solo-Traveller Handbook finds activities in your city of choice recommended by solo-travellers for solo-travellers.</p>
       <div class="row search-bar">
-    </header>
-      <main>   <form class="col s12" action="{{url_for('index')}}" method="POST">
+     <form class="col s12" action="{{url_for('index')}}" method="POST">
             <div class="row">
                <div class="input-field col s12" style="background-color:white;">
-                  <input id="input" name="city" placeholder="type the name of a city here and search activities now "></input>
+                  <input id="input" name="city" placeholder="type the name of a city here and search activities now ">
                </div>
                <button class="btn waves-effect waves-light" type="submit" name="action">Search
                <i class="material-icons right">send</i>
@@ -19,27 +18,27 @@
       </div>
    </div>
 </div>
+
 <div class ="container">
    <div class="row">
       <div class="col s6 m5">
          <div class="card-panel">
-            <span class="black-text">
-               <p class="header-text-createpage flow-text"> Use the search bar above to filter by city. </p>
-               <p class="header-text-createpage flow-text"> Want more search filters? Then go to our search page. </p>
-               <button class="btn waves-effect waves-light"> <a href="{{url_for('find')}}">Start Searching Now</a>
-               </button>
+            <span class="black-text header-text-createpage flow-text">
+                Use the search bar above to filter by city. 
+               Want more search filters? Then go to our search page. 
+               <a href="{{url_for('find')}}"><button class="btn waves-effect waves-light">Start Searching Now
+               </button> </a>
             </span>
          </div>
       </div>
       {% if 'email' in session %}
       <div class="col s6 m5">
          <div class="card-panel">
-            <span class="black-text">
-               <p class="header-text-createpage">Do you have travel experiences and activities you want to share with other travellers?
+            <span class="black-text header-text-createpage">
+              Do you have travel experiences and activities you want to share with other travellers?
                   Then why not add to our collection? Or you can also manage your existing activities. 
-               </p>
-               <button class="btn waves-effect waves-light"><a href="{{url_for('addactivity')}}">Create Activities</a></button>
-               <button class="btn waves-effect waves-light"><a href="{{url_for('managemylistings')}}">Manage My Listings </a> </button>
+               <a href="{{url_for('addactivity')}}"> <button class="btn waves-effect waves-light">Create Activities</button></a>
+               <a href="{{url_for('managemylistings')}}"> <button class="btn waves-effect waves-light">Manage My Listings </button></a>
             </span>
          </div>
       </div>
@@ -47,16 +46,16 @@
       <div class="col s6 m5">
          <div class="card-panel">
             <span class="black-text">
-               <p>Do you have travel experiences and activities you want to share with other travellers?
+               Do you have travel experiences and activities you want to share with other travellers?
                   Then why not create an account and start adding listings now? Or login if you have an existing account. 
-               </p>
-               <button class="btn waves-effect waves-light"><a href="{{url_for('register')}}">Create Account </a></button>
-               <button class="btn waves-effect waves-light"><a href="{{url_for('login')}}">Login </a> </button>
+              
+               <a href="{{url_for('register')}}"><button class="btn waves-effect waves-light">Create Account </button></a>
+               <a href="{{url_for('login')}}"><button class="btn waves-effect waves-light">Login </button> </a>
             </span>
          </div>
       </div>
       {% endif %}
    </div>
 </div>
-</main>
+
 {% endblock %}
