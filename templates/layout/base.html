@@ -16,7 +16,7 @@
     <nav>
         <div class="nav-wrapper">
             <a href="{{url_for('index')}}" class="brand-logo">The Solo-Traveller Handbook</a>
-                    <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 {% if 'email' not in session %}
@@ -32,6 +32,21 @@
                     <li><a href="{{url_for('logout')}}">Logout</a></li>
                 {% endif %}
             </ul>
+                  <ul class="side-nav" id="mobile-demo">
+                   {% if 'email' not in session %}
+                    <li><a href="{{url_for('index')}}">Home</a></li>
+                    <li><a href="{{url_for('find')}}">Search Activity</a></li>
+                    <li><a href="{{url_for('register')}}">Register</a></li>
+                    <li><a href="{{url_for('login')}}">Login</a></li>
+                {% else %}
+                    <li><a href="{{url_for('index')}}">Home</a></li>
+                    <li><a href="{{url_for('find')}}">Search Activity</a></li>
+                    <li><a href="{{url_for('managemylistings')}}">Manage My Listings</a></li>
+                    <li><a href="{{url_for('addactivity')}}">Create Activities</a></li>
+                    <li><a href="{{url_for('logout')}}">Logout</a></li>
+                {% endif %}
+                  </ul>
+
         </div>
     </nav>
     </header>

@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $('.modal').modal();
     $('select').material_select();
-    $('.sidenav').sidenav();
+    $(".button-collapse").sideNav();
 });
 
 
