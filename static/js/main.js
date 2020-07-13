@@ -1,9 +1,7 @@
 $(document).ready(function () {
     $('.modal').modal();
     $('select').material_select();
+    $('.sidenav').sidenav();
 });
 
 
-$(document).ready(function(){
-    $('.sidenav').sidenav();
-  });
