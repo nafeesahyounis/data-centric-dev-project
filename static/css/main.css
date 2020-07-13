@@ -14,7 +14,7 @@ main {
  
 
 
-h1 {
+h2 {
 	font-family: 'Shadows Into Light', cursive;
 }
 
@@ -54,7 +54,7 @@ a {
 .header-text {
 	font-family: 'Arimo', sans-serif;
 	/*font-size: 8vh; */
-	font-size: 2em;
+	font-size: 1em;
 }
 
 .header-text-createpage {
@@ -64,12 +64,37 @@ a {
 }
 
 
-/* The hero image */
+/* The hero images */
 
 .hero-image {
 	/* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
 	/* Set a specific height */
-	height: 70%; 
+	height: 70vh;
+	/* Position and center the image to scale nicely on all screens */
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/traveller.jpg')
+}
+
+.hero-image-find {
+	/* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/motorcyle.jpg");
+	/* Set a specific height */
+	height: 40vh;
+	/* Position and center the image to scale nicely on all screens */
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+
+.hero-image-create {
+	/* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/lighthouse.png");
+	/* Set a specific height */
+	height: 40vh;
 	/* Position and center the image to scale nicely on all screens */
 	background-position: center;
 	background-repeat: no-repeat;
@@ -94,33 +119,13 @@ a {
 	background-color: white;
 }
 
-.hero-image-find {
-	/* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../static/images/motorcyle.jpg");
-	/* Set a specific height */
-	height: 40%;
-	/* Position and center the image to scale nicely on all screens */
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	position: relative;
-}
+
 
 .border {
 	border: 1px solid black;
 }
 
-.hero-image-create {
-	/* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../static/images/lighthouse.png");
-	/* Set a specific height */
-	height: 40%;
-	/* Position and center the image to scale nicely on all screens */
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	position: relative;
-}
+
 
 
 /* Place text in the middle of the image */
