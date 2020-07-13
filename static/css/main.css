@@ -85,7 +85,6 @@ a {
 
 .header-text-createpage {
 	font-family: 'Arimo', sans-serif;
-	/*font-size: 8vw, 8vh; */
 	font-size: 1em;
 }
 
@@ -128,9 +127,9 @@ a {
 	position: relative;
 }
 
-.results {
+/*.results {
 	width: 100vw;
-}
+} */
 
 .search-form {
 	background-color: #FFF7ED;
@@ -158,6 +157,6 @@ a {
 .hero-text {
 	text-align: center; 
 	/*position: absolute; */
-	
+	width:100%;
 	color: #9CADBC;
 } 
