@@ -21,9 +21,9 @@
                   {% else %}
                   {% for user_activity in user_activities %}
                   <span class="card-title"> {{user_activity.city|capitalize}}</span>
-                  <p>{{user_activity.category|capitalize}} </p>
-                  <p> {{user_activity.name|capitalize}} </p>
-                  <p> {{user_activity.description|capitalize}}</p>
+                  <p>Category: {{user_activity.category|capitalize}} </p>
+                  <p>Name: {{user_activity.name|capitalize}} </p>
+                  <p>Description: {{user_activity.description|capitalize}}</p>
                   <a class="waves-effect waves-light btn-large" href="{{url_for('edit_activity', user_activity_id=user_activity._id)}}">Edit</a>
                   <!-- Modal Trigger -->
 
