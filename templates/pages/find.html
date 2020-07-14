@@ -47,9 +47,9 @@
                      <p> There are {{results|length}} results that match your query.</p>
                      {% for result in results %}
                      <span class="card-title">{{result.city|capitalize}}</span>
-                     <p>{{result.name|capitalize}}</p>
-                     <p>{{result.category|capitalize}}</p>
-                     <p>{{result.description|capitalize}}</p>
+                     <p>Name: {{result.name|capitalize}}</p>
+                     <p>Category: {{result.category|capitalize}}</p>
+                     <p>Description: {{result.description|capitalize}}</p>
                      <hr>
                      {% endfor %}
                   </div>
