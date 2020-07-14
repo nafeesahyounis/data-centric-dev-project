@@ -20,6 +20,10 @@
 	
 }
 
+.hero-image-managelistings{
+    height:100vh;
+}
+
 
 }
 
@@ -44,7 +48,10 @@ h2 {
     margin-top:2px;
 }
 
+.side-nav{
+    	background-color: rgba(233, 154, 39, 0.8)
 
+}
 
 .background {
 	background-color: rgba(102, 133, 152, 0.9);
@@ -114,6 +121,7 @@ a {
 	background-size: cover;
 	position: relative;
 }
+
 
 .hero-image-create {
 	/* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
