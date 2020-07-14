@@ -10,20 +10,16 @@
          </div>
       </div>
       <div class="row">
-         <div class="input-field col s12">
-            <select id="category" name="category">
-               <option value="" disabled selected>Choose Category</option>
-               {% for cat in categories %}
-               {% if cat.category == user_activity.category %}
-               <option value="{{cat.category}}" selected>{{cat.category}}</option>
-               {% else %}
-               <option value="{{cat.category}}" selected>{{cat.category}}</option>
-               {%endif%}
-               {% endfor %}
-            </select>
-            <label>Category</label>
-         </div>
-      </div>
+                     <div class="input-field col s12">
+                        <select name="category">
+                           <option value="" disabled selected>Choose your option</option>
+                           <option value="food">food</option>
+                           <option value="sport">sport</option>
+                           <option value="art">art</option>
+                        </select>
+                        <label>Category</label>
+                     </div>
+                  </div>
       <div class="row">
          <div class="input-field col s12">
             <input id="name" name="name" type="text" class="validate" value={{user_activity.name}}>
