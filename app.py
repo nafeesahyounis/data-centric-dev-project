@@ -85,29 +85,32 @@ def find_activity():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    doesnt_exist = "Invalid username/password \
+    if 'email' in session:
+        return render_template('pages/permissiondenied.html')
+    else:
+        doesnt_exist = "Invalid username/password \
             combination. \
             Please try again, or register to make an account"
-    if request.method == "GET":
-        return render_template('pages/login.html')
-    elif request.method == "POST":
-        email = request.form['email']
-        user = mongo.db.users.find_one({'email': email})
-        name = user.get('first_name')
-        if user is None:
-            return render_template('pages/login.html',
-                                   doesnt_exist=doesnt_exist)
-        user_password = user['password']
-        print(user_password)
-        print(name)
-        form_password = request.form['password']
-        if pbkdf2_sha256.verify(form_password, user_password):
-            session['email'] = request.form['email']
-            return render_template('pages/index.html',
-                                   name=name)
-        else:
-            return render_template('pages/login.html',
-                                   doesnt_exist=doesnt_exist)
+        if request.method == "GET":
+            return render_template('pages/login.html')
+        elif request.method == "POST":
+            email = request.form['email']
+            user = mongo.db.users.find_one({'email': email})
+            name = user.get('first_name')
+            if user is None:
+                return render_template('pages/login.html',
+                                       doesnt_exist=doesnt_exist)
+            user_password = user['password']
+            print(user_password)
+            print(name)
+            form_password = request.form['password']
+            if pbkdf2_sha256.verify(form_password, user_password):
+                session['email'] = request.form['email']
+                return render_template('pages/index.html',
+                                       name=name)
+            else:
+                return render_template('pages/login.html',
+                                       doesnt_exist=doesnt_exist)
 
 
 
@@ -126,8 +129,9 @@ def register():
                                          'email': request.form.get('email'),
                                          'password': _hash})
             session['email'] = request.form.get('email')
-            session['user'] = request.form.get('first_name', 'last_name')
-            return redirect(url_for('index'))
+            name = new_user.get('first_name')
+            return render_template('pages/index.html',
+                                   name=name)
         return 'That Username Already Exists!'
     else:
         return render_template("pages/register.html")
