@@ -132,7 +132,8 @@ def register():
             name = new_user.get('first_name')
             return render_template('pages/index.html',
                                    name=name)
-        return 'That Username Already Exists!'
+        return render_template("pages/register.html",
+                               already_exists='That Username Already Exists!')
     else:
         return render_template("pages/register.html")
 
