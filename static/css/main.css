@@ -27,9 +27,7 @@
     visibility:hidden;
     display: none;
 }
-.brand-logo1{
-    display:inline-block;
-}
+
 
 }
 
@@ -64,9 +62,9 @@ h2 {
         display:inline-block;
 
 }
-.brand-logo{
-    display:none;
-}
+
+
+
 
 .background {
 	background-color: rgba(102, 133, 152, 0.9);
