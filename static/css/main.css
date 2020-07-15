@@ -23,10 +23,7 @@
 .hero-image-managelistings{
     height:100vh;
 }
-.brand-logo2{
-    visibility:hidden;
-    display: none;
-}
+
 
 
 }
@@ -56,11 +53,8 @@ h2 {
     	background-color: rgba(233, 154, 39, 0.8)
 
 }
-.brand-logo2{
-    	font-family: 'Shadows Into Light', cursive;
-        font-size: 1.7em;
-        display:inline-block;
-
+img{
+    overflow:hidden;
 }
 
 
