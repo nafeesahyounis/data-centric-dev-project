@@ -69,21 +69,12 @@ def find_activity():
     mandatory_search_filters = {'city': request.form.get('city'), 
                                 'category': request.form.get('category')}
     convert_to_lowercase_string = json.dumps(mandatory_search_filters).lower()
-    print(convert_to_lowercase_string)
     result = json.loads(convert_to_lowercase_string)
     # if user also specifies name, this will be added to the search filters
     if request.form.get('name') != "":
         name = {'name': request.form.get('name')}
-     #   lowercase_name = json.dumps(name).lower()
-     #   final_name = json.loads(lowercase_name)
         result.update(name)
     final_result = list(mongo.db.things_to_do.find(result))
-    
-   # if mandatory_search_filters == [] and request.form.get('name') != "":
-   #     name = {'name': request.form.get('name')}
-   # only_name_result = list(mongo.db.things_to_do.find(mandatory_search_filters))
-
-    #print(only_name_result)
     print(final_result)
     no_results="No results found"
     return render_template("pages/find.html", 
@@ -103,8 +94,8 @@ def login():
         email = request.form['email']
         user = mongo.db.users.find_one({'email': email})
         if user is None:
-             return render_template('pages/login.html',
-                                  doesnt_exist=doesnt_exist)
+            return render_template('pages/login.html',
+                                   doesnt_exist=doesnt_exist)
         user_password = user['password']
         print(user_password)
         form_password = request.form['password']
@@ -113,7 +104,7 @@ def login():
             return redirect(url_for('index'))
         else:
             return render_template('pages/login.html',
-                                  doesnt_exist=doesnt_exist)
+                                   doesnt_exist=doesnt_exist)
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -143,7 +134,6 @@ def register():
 @app.route('/logout')
 def logout():
     session.clear()
-    flash(f'Thank you for using Oly-Track. See you soon.', 'primary')
     return redirect(url_for('index'))
 
 
@@ -211,13 +201,11 @@ def addactivity():
 def insert_activity():
 
     email = session['email']
-    print(email)
     things_to_do = mongo.db.things_to_do
     city = request.form.get('city')
     category = request.form.get('category')
     name = request.form.get('name')
     if city == '' :
-        print('none')
         return render_template('pages/addactivity.html')
     if category == None:
         return render_template('pages/addactivity.html')
