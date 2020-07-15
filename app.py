@@ -157,10 +157,8 @@ def edit_activity(user_activity_id):
     if 'email' in session:
         the_activity = mongo.db.things_to_do.find_one(
             {"_id": ObjectId(user_activity_id)})
-        categories = mongo.db.things_to_do.find()
         return render_template("pages/editactivity.html", 
-                               user_activity=the_activity, 
-                               categories=categories)
+                               user_activity=the_activity)
     return render_template("pages/permissiondenied.html")
 
  
@@ -205,19 +203,23 @@ def insert_activity():
     city = request.form.get('city')
     category = request.form.get('category')
     name = request.form.get('name')
-    if city == '' :
-        return render_template('pages/addactivity.html')
-    if category == None:
-        return render_template('pages/addactivity.html')
+    not_submitted = "Uh oh. Either the city, category or name were not entered, so your listing has not been submitted."
+    if city == '':
+        return render_template('pages/addactivity.html',
+                               not_submitted=not_submitted)
+    if category is None:
+        return render_template('pages/addactivity.html',
+                               not_submitted=not_submitted)
     if name == '':
-        return render_template('pages/addactivity.html')
+        return render_template('pages/addactivity.html',
+                               not_submitted=not_submitted)
     else:
         things_to_do.insert_one(
                             {
                              'user': email,
-                             'city': request.form.get('city'),
-                             'category': request.form.get('category'),
-                             'name': request.form.get('name'),
+                             'city': city,
+                             'category': category,
+                             'name': name,
                              'description': request.form.get('description')
 
                             }

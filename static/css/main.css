@@ -67,8 +67,11 @@ footer {
 
 a {
 	color: #FFF7ED;
+    margin:2px;
 }
-
+button{
+    margin:5px;
+}
 .input-field {
 	background-color: #FFF7ED;
 	overflow: none;
