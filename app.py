@@ -213,7 +213,18 @@ def insert_activity():
     email = session['email']
     print(email)
     things_to_do = mongo.db.things_to_do
-    things_to_do.insert_one(
+    city = request.form.get('city')
+    category = request.form.get('category')
+    name = request.form.get('name')
+    if city == '' :
+        print('none')
+        return render_template('pages/addactivity.html')
+    if category == None:
+        return render_template('pages/addactivity.html')
+    if name == '':
+        return render_template('pages/addactivity.html')
+    else:
+        things_to_do.insert_one(
                             {
                              'user': email,
                              'city': request.form.get('city'),
