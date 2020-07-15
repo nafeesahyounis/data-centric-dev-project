@@ -93,18 +93,22 @@ def login():
     elif request.method == "POST":
         email = request.form['email']
         user = mongo.db.users.find_one({'email': email})
+        name = user.get('first_name')
         if user is None:
             return render_template('pages/login.html',
                                    doesnt_exist=doesnt_exist)
         user_password = user['password']
         print(user_password)
+        print(name)
         form_password = request.form['password']
         if pbkdf2_sha256.verify(form_password, user_password):
             session['email'] = request.form['email']
-            return redirect(url_for('index'))
+            return render_template('pages/index.html',
+                                   name=name)
         else:
             return render_template('pages/login.html',
                                    doesnt_exist=doesnt_exist)
+
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -123,8 +127,6 @@ def register():
                                          'password': _hash})
             session['email'] = request.form.get('email')
             session['user'] = request.form.get('first_name', 'last_name')
-            print(session['user'])
-            print(new_user)
             return redirect(url_for('index'))
         return 'That Username Already Exists!'
     else:
@@ -157,7 +159,7 @@ def edit_activity(user_activity_id):
     if 'email' in session:
         the_activity = mongo.db.things_to_do.find_one(
             {"_id": ObjectId(user_activity_id)})
-        return render_template("pages/editactivity.html", 
+        return render_template("pages/editactivity.html",
                                user_activity=the_activity)
     return render_template("pages/permissiondenied.html")
 
