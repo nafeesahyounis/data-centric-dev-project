@@ -27,7 +27,9 @@
     visibility:hidden;
     display: none;
 }
-
+.brand-logo1{
+    display:inline-block;
+}
 
 }
 
@@ -59,9 +61,12 @@ h2 {
 .brand-logo2{
     	font-family: 'Shadows Into Light', cursive;
         font-size: 1.7em;
+        display:inline-block;
 
 }
-
+.brand-logo{
+    display:none;
+}
 
 .background {
 	background-color: rgba(102, 133, 152, 0.9);
