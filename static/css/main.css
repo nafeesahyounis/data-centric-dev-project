@@ -23,6 +23,10 @@
 .hero-image-managelistings{
     height:100vh;
 }
+.brand-logo2{
+    visibility:hidden;
+    display: none;
+}
 
 
 }
@@ -52,6 +56,12 @@ h2 {
     	background-color: rgba(233, 154, 39, 0.8)
 
 }
+.brand-logo2{
+    	font-family: 'Shadows Into Light', cursive;
+        font-size: 1.7em;
+
+}
+
 
 .background {
 	background-color: rgba(102, 133, 152, 0.9);
@@ -72,8 +82,13 @@ a {
 button{
     margin:5px;
 }
+
+.brand-logo{
+    background-image:url('../images/handbook-logo-smallscreen.png')
+}
 .input-field {
-	background-color: rgb(8, 8, 8);
+	background-color: #FFF7ED;
+;
 	overflow: none;
 }
 
