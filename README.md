@@ -393,6 +393,8 @@ There are a lot of features I would have liked to implement in this project. How
 * [GitHub](https://github.com/) - Was used to remotely store the code online.
 * [Picresize](https://picresize.com/) - Used to crop images.
 * Images were taken from [Freepik](https://www.freepik.com/) and [Pixabay](https://pixabay.com/).
+* [Am I Responsive](http://ami.responsivedesign.is/) this was used in the README file to show the responsive web pages.
+
 
 ### Front-End Technologies
 
