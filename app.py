@@ -156,16 +156,16 @@ def logout():
 
 @app.route('/managemylistings')
 def managemylistings():
+    """
+    User can only access this page if he/she is logged/
+    in otherwise he/she will be redirected to/
+    permission denied.
+    All activities created by current user in session/
+    will be found by mongodb find method and displayed/
+    on this page to be viewed, edited or deleted via/
+    additional buttons (see update_activity and delete_activity).
+    """
     if 'email' in session:
-        """
-        User can only access this page if he/she is logged/
-        in otherwise he/she will be redirected to/
-        permission denied.
-        All activities created by current user in session/
-        will be found by mongodb find method and displayed/
-        on this page to be viewed, edited or deleted via/
-        additional buttons (see update_activity and delete_activity).
-        """
         user = session['email']
         user_activities = list(mongo.db.things_to_do.find({'user': user}))
         no_activities = "You don't have any existing activities. Would you like to create some?"
@@ -177,7 +177,13 @@ def managemylistings():
 
 @app.route('/edit_activity/<user_activity_id>')
 def edit_activity(user_activity_id):
-
+    """
+    This is page loads upon clicking on edit button/
+    on managemylistings. If user isn't logged in/
+    they will be redirected to permissiondenied/
+    otherwise they will be sent to a form to/
+    edit listing (see update_activity).
+    """
     if 'email' in session:
         the_activity = mongo.db.things_to_do.find_one(
             {"_id": ObjectId(user_activity_id)})
@@ -188,6 +194,17 @@ def edit_activity(user_activity_id):
  
 @app.route('/update_activity/<user_activity_id>', methods=['POST'])
 def update_activity(user_activity_id):
+    """
+    The object id from the chosen listing is taken/
+    and the form is filled with the existing data./
+    When form data is inputted, it is firstly converted/
+    to a lowercase string and then back to a lowercase/
+    dict so that the database remains in lowercase when/
+    being updated./
+    Once edits are done, user hits edit and is sent to/
+    managemylistings where he/she can see the new edited/
+    entry.
+    """
     if 'email' in session:
         email = session['email']
         activities = mongo.db.things_to_do
