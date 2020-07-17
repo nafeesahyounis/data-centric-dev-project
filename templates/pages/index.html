@@ -1,12 +1,15 @@
 {% extends 'layout/base.html' %}
 {% block content %}
+<!--Hero Image for better visual experience-->
 <div class="hero-image valign-wrapper">
    <div class="hero-text center-align">
+      <!--Text on Hero Image welcoming user to site. If user is in session, name of user is also displayed under welcome and the first letter is capitalised for consistency-->
       <h2>Welcome to the Solo-Traveller-Handbook</h2>
       <h2> {{name|capitalize}}</h2>
       <p class="header-text">Tired of rifling through travel guides, websites and blogs for activities that suit your needs as a solo-traveller? Then you're in the right place. The Solo-Traveller Handbook finds activities in your city of choice recommended by solo-travellers for solo-travellers.</p>
       <div class="row search-bar container">
          <form class="col s12" action="{{url_for('index')}}" method="POST">
+            <!--Search bar/input that takes name of city and redirects to find page-->
             <div class="row">
                <div class="input-field col s12">
                   <input id="input" name="city" placeholder="type the name of a city here and search activities now ">
@@ -19,6 +22,7 @@
       </div>
    </div>
 </div>
+<!--Two cards with additional info about what you can do on the site to provide better navigation. Buttons change depending on whether user is logged in-->
 <div class ="container">
    <div class="row">
       <div class="col s12 m6 card-panel valign-wrapper">
