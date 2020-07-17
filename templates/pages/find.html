@@ -1,5 +1,6 @@
 {% extends 'layout/base.html' %}
 {% block content %}
+<!--Hero Image for better visual experience, which also has hero text explaining the functionality of the page-->
    <div class="hero-image-find valign-wrapper">
       <div class="hero-text center-align">
          <h2>Search Activity </h2>
@@ -9,7 +10,7 @@
    <div>
       <div class ="row">
          <div class ="col m4 l4 s6">
-            <div class="row search-form header-text-createpage">
+            <div class="row search-form header-text">
                <form class="col s12" action="{{url_for('find_activity')}}" method="POST">
                   <div class="row">
                      <div class="input-field col s12">

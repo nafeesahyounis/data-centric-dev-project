@@ -332,13 +332,15 @@ For this reason, the login system was not heavily tested and I'm sure that it co
 
 * The user can change any of the data and resubmit and it is not case sensitive. 
 
-## Existing Features
+## Features left to Implement
 
 There are a lot of features I would have liked to implement in this project. However, the time was very tight and it was important to keep it minimal and purposeful.
 
 * Filters
 
 - Currently there are only three filters on the search page and 4 options for the Create Activity page. I would have liked to make this a lot more complex. I experimented with price, days of the week and contact information. I tried using materialize selectors and other features. However, it was important to timebox the project and it took far too long to consolidate so additional filters were removed for the time being, but will be added at a later point.
+
+- There are also only three categories in the categories section. I plan to add more at a later point. 
 
 * User feedback modals
 
@@ -384,5 +386,33 @@ There are a lot of features I would have liked to implement in this project. How
 
 * All of these features are manageable however it was necessary to timebox the project, so basic functionality and design was prioritised. For this reason also, limited Javascript was used and the focus was on the backend.
 
+## Information Architecture
 
+## Technologies Used
 
+* [GitHub](https://github.com/) - Was used to remotely store the code online.
+* [Picresize](https://picresize.com/) - Used to crop images.
+* Images were taken from [Freepik](https://www.freepik.com/) and [Pixabay](https://pixabay.com/).
+
+### Front-End Technologies
+
+- [HTML](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5) - This was used for the main markup of the site.
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3) - This was used was for styling.
+- [jQuery 3.4.0](https://code.jquery.com/jquery/) was used for the main javascript functionality.
+- [Materialize 0.100.2](https://materializecss.com/) - was the design framework chosen for this project.
+
+### Back-End Technologies
+
+- **Flask**
+    - [Flask 1.0.2](http://flask.pocoo.org/) - This was the microframework used to build the project.
+    - [Jinja 2.10](http://jinja.pocoo.org/docs/2.10/) - Templates with Flask were created using Jinja.
+
+- **Heroku**
+    - [Heroku](https://www.heroku.com) - The app has been hosted on heroku.
+
+- - **Python**    
+    - [Python 3.6.7](https://www.python.org/) - was the backend language used for this project.
+    - [MongoDB Atlas](https://www.mongodb.com/) - this is where the database was stored.
+
+## Deployment
+## Credits
