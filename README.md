@@ -184,6 +184,34 @@ I would have liked to better refine and design the footer, but the project had a
 
 ### Home Page
 
+* Hero Image
+
+- A Hero image is at the top of the Home Page. An illustration of a solo-traveller staring off into an adventure was chosen in order to evoke feelings of travel, adventure and longing.
+
+- This picture was selected because it perfectly fit the brand of the site and the dark blue color scheme evokes the sense of mystery required to inspire a user to search for new activities and use the site.
+
+- The picture is also very visually appealing, and design time was limited during this project due to the tight time constraints, so I chose to have powerful illustrations that would enhance the user experience and require little additional code.
+
+- The background image is full screen on smaller screen sizes, as there is text on it and this will make the mobile experience better.
+
+* Search bar 
+
+- Placed on top of the Hero Image is a search bar that immediately allows the user to start searching in the site by typing in the desired city.
+
+- This choice was made in order to supply the user with a quick and efficient User experience and to make the site relaxing to manouevre. 
+
+* Card Panels
+
+- There are two card panels on the homepage, both of which offer different things. 
+
+- The first card offers the user the option to search with more fields, as the search bar only allows the user to search with a city.
+
+- The second card changes depending on if the user is logged in. If user is not logged in, they can create an account or login. If they are logged in, they can create an activity or manage their listings.
+
+- The purpose behind having these card panels with the buttons on them directing to these options was to enhance user experience and navigation. The user can access all the functionalities of the site both through the navbar and the homepage, so there are a minimum number of clicks and the site is very easy to navigate.
+
+
+
 ### Find Page
 <div align="center">
     <img src="/static/images/searchactivity.png" target="_blank" rel="noopener" alt="Image of how find page looks on all screen sizes" aria-label="Image of how home page looks on all screen sizes" />
