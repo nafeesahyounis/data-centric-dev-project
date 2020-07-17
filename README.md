@@ -143,7 +143,34 @@ I opted for illustrations instead of photographs as I felt that they gave the si
 # Features
 ## Existing Features
 
+### Home Page
 
+### Find Page
+<div align="center">
+    <img src="/static/images/searchactivity.png" target="_blank" rel="noopener" alt="Image of how find page looks on all screen sizes" aria-label="Image of how home page looks on all screen sizes" />
+</div>
+
+### Login Page
+<div align="center">
+    <img src="/static/images/login.png" target="_blank" rel="noopener" alt="Image of how login page looks on all screen sizes" aria-label="Image of how home page looks on all screen sizes" />
+</div>
+
+### Register Page
+<div align="center">
+    <img src="/static/images/create-account.png" target="_blank" rel="noopener" alt="Image of how register page looks on all screen sizes" aria-label="Image of how home page looks on all screen sizes" />
+</div>
+
+### Create Activity Page
+
+<div align="center">
+    <img src="/static/images/create-activity.png" target="_blank" rel="noopener" alt="Image of how create page looks on all screen sizes" aria-label="Image of how home page looks on all screen sizes" />
+</div>
+
+### Manage Listings Page
+
+<div align="center">
+    <img src="/static/images/managelistings.png" target="_blank" rel="noopener" alt="Image of how manage listings page looks on all screen sizes" aria-label="Image of how home page looks on all screen sizes" />
+</div>
 
 
 
