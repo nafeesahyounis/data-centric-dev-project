@@ -136,7 +136,7 @@ def register():
             return render_template('pages/index.html',
                                    name=name)
         return render_template("pages/register.html",
-                               already_exists='That Username Already Exists!')
+                               already_exists="Either you inputted something incorrectly, didn't fill in all the fields or that username already exists. Please try again :)")
     else:
         return render_template("pages/register.html")
 

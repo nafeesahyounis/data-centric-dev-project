@@ -247,12 +247,19 @@ I would have liked to better refine and design the footer, but the project had a
 
 - If the password or email address are incorrectly inputted, python returns the 'doesn't exist' variable, which essentially is a string that states that the incorrect username or password have been inputted. It also prompts the user to register if there is no existing account.
 
-- Templating was used and this message appears 
+- Templating was used and this message appears above the register and login buttons.
+
+- A register button is on the page for easier navigation.
 
 ### Register Page
 <div align="center">
     <img src="/static/images/create-account.png" target="_blank" rel="noopener" alt="Image of how register page looks on all screen sizes" aria-label="Image of how home page looks on all screen sizes" />
 </div>
+
+- The register page has four simple form fields, name, last name, email address and password.
+
+- The password is hashed in the python and securely stored in the mongodb database.
+
 
 ### Create Activity Page
 
