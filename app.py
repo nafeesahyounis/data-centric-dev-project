@@ -221,12 +221,14 @@ def insert_activity():
         return render_template('pages/addactivity.html',
                                not_submitted=not_submitted)
     else:
+        name_lower = json.dumps(name).lower()
+        new_name = json.loads(name_lower)
         things_to_do.insert_one(
                             {
                              'user': email,
                              'city': city,
                              'category': category,
-                             'name': name,
+                             'name': new_name,
                              'description': request.form.get('description')
 
                             }
