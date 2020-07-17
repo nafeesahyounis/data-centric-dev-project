@@ -1,13 +1,11 @@
 import os
-from flask import Flask, flash, render_template, redirect, session, request, \
+from flask import Flask, render_template, redirect, session, request, \
      url_for
 from flask_pymongo import PyMongo
 from os import path
 from bson.objectid import ObjectId
-from bson.json_util import dumps
 from passlib.hash import pbkdf2_sha256
-import json 
-import bcrypt
+import json
 if path.exists("env.py"):
     import env
 
