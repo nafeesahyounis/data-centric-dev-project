@@ -223,10 +223,12 @@ def insert_activity():
     else:
         name_lower = json.dumps(name).lower()
         new_name = json.loads(name_lower)
+        city_lower = json.dumps(city).lower()
+        new_city = json.loads(city_lower)
         things_to_do.insert_one(
                             {
                              'user': email,
-                             'city': city,
+                             'city': new_city,
                              'category': category,
                              'name': new_name,
                              'description': request.form.get('description')
