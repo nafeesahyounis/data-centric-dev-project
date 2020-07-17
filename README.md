@@ -138,7 +138,27 @@ I opted for illustrations instead of photographs as I felt that they gave the si
 
 Wireframes were made with [Balsamiq](https://balsamiq.com/) during the scope part of the project.
 
-[Home](src="/static/wireframes/homepage.pdf")
+[Home](https://ibb.co/pfKjwrJ)
+
+[Find](https://ibb.co/zVLJhDt)
+
+[Create Activity](https://ibb.co/HHC1yx5)
+
+[Manage My Listings](https://ibb.co/2dBdmTh)
+
+[Edit](https://ibb.co/w6kpMGb)
+
+[Register/Create Account](https://ibb.co/pfKjwrJ)
+
+[Login](https://ibb.co/pfKjwrJ)
+
+[Permission Denied](https://ibb.co/pfKjwrJ)
+
+
+
+
+
+
 
 ## Flowchart
 
