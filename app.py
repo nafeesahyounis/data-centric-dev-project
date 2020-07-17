@@ -25,13 +25,14 @@ app.secret_key = b'\x81\xa7\x9b\x8bq\x16x\x0b~A\x9c\xbb>\xe6\xef-'
 def index():
     """
     User can type the city into the search bar \
-    and hit submit. \ Mongodb is case sensitive\
-    so for input is first converted to a lowercase string\
+    and hit submit.\
+    Mongodb is case sensitive\
+    so form input is first converted to a lowercase string\
     and then returned as lowercase as the database is entirely\
     in lowercase.\
-    If database entry matches city name, 
+    If database entry matches city name,
     the user will be redirected to the search activity page \
-    and results will be displayed. 
+    and results will be displayed.
     """
     search_bar_original = request.form.get('city')
     convert_to_lowercase_string = json.dumps(search_bar_original).lower()
@@ -42,11 +43,18 @@ def index():
         return render_template('pages/find.html',
                                results=search_database)
     else:
-        return render_template('pages/index.html')    
+        return render_template('pages/index.html')
 
 
 @app.route('/permissiondenied')
 def permissiondenied():
+    """
+    If user tries to enter add, edit or managelistings page/
+    without being logged in they will be redirected to/
+    permission denied. Also if they are already logged in/
+    they will be redirected here because they can't log/
+    in twice.
+    """
     return render_template('pages/permissiondenied.html')
 
 @app.route('/find')
@@ -55,7 +63,7 @@ def find():
 
 
 @app.route('/find_activity', methods=['GET', 'POST'])
-def find_activity(): 
+def find_activity():
     """
     User must type the name of a city and choose a category\
     Mongodb will be searched and all entries matching both the \
@@ -66,7 +74,7 @@ def find_activity():
     added to the search.
     """
     # form filters will not work if city and category are not specified.
-    mandatory_search_filters = {'city': request.form.get('city'), 
+    mandatory_search_filters = {'city': request.form.get('city'),
                                 'category': request.form.get('category')}
     convert_to_lowercase_string = json.dumps(mandatory_search_filters).lower()
     result = json.loads(convert_to_lowercase_string)
@@ -77,11 +85,11 @@ def find_activity():
     final_result = list(mongo.db.things_to_do.find(result))
     print(final_result)
     no_results="No results found"
-    return render_template("pages/find.html", 
+    return render_template("pages/find.html",
                            results=final_result,
                            no_results=no_results,
                            )
-                           
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -101,8 +109,6 @@ def login():
                 return render_template('pages/login.html',
                                        doesnt_exist=doesnt_exist)
             user_password = user['password']
-            print(user_password)
-            print(name)
             form_password = request.form['password']
             if pbkdf2_sha256.verify(form_password, user_password):
                 session['email'] = request.form['email']
@@ -140,6 +146,10 @@ def register():
 
 @app.route('/logout')
 def logout():
+    """
+    Session is cleared when user logs out and redirect/
+    to homepage.
+    """
     session.clear()
     return redirect(url_for('index'))
 
@@ -147,13 +157,20 @@ def logout():
 @app.route('/managemylistings')
 def managemylistings():
     if 'email' in session:
+        """
+        User can only access this page if he/she is logged/
+        in otherwise he/she will be redirected to/
+        permission denied.
+        All activities created by current user in session/
+        will be found by mongodb find method and displayed/
+        on this page to be viewed, edited or deleted via/
+        additional buttons (see update_activity and delete_activity).
+        """
         user = session['email']
         user_activities = list(mongo.db.things_to_do.find({'user': user}))
         no_activities = "You don't have any existing activities. Would you like to create some?"
-        print(no_activities)
-        print(user_activities)
-        return render_template("pages/managemylistings.html", 
-                               user_activities=user_activities, 
+        return render_template("pages/managemylistings.html",
+                               user_activities=user_activities,
                                no_activities=no_activities)
     return render_template("pages/permissiondenied.html")
     
