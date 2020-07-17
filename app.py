@@ -174,13 +174,19 @@ def update_activity(user_activity_id):
     if 'email' in session:
         email = session['email']
         activities = mongo.db.things_to_do
+        name = request.form.get('name')
+        city = request.form.get('city')
+        name_lower = json.dumps(name).lower()
+        new_name = json.loads(name_lower)
+        city_lower = json.dumps(city).lower()
+        new_city = json.loads(city_lower)
         activities.update({'_id': ObjectId(user_activity_id)},
                           {
                             'user': email,
-                            'name': request.form.get('name'),
+                            'name': new_name,
                             'category': request.form.get('category'),
-                            'city': request.form.get('city'),
-                            'description': request.form.get('description')   
+                            'city': new_city,
+                            'description': request.form.get('description')
                           })
 
     return redirect(url_for('managemylistings'))
