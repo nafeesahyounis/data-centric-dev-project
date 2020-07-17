@@ -103,7 +103,6 @@ def login():
         elif request.method == "POST":
             email = request.form['email']
             user = mongo.db.users.find_one({'email': email})
-            name = user.get('first_name')
             if user is None:
                 return render_template('pages/login.html',
                                        doesnt_exist=doesnt_exist)
@@ -111,6 +110,7 @@ def login():
             form_password = request.form['password']
             if pbkdf2_sha256.verify(form_password, user_password):
                 session['email'] = request.form['email']
+                name = user.get('first_name')
                 return render_template('pages/index.html',
                                        name=name)
             else:

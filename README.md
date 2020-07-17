@@ -217,10 +217,37 @@ I would have liked to better refine and design the footer, but the project had a
     <img src="/static/images/searchactivity.png" target="_blank" rel="noopener" alt="Image of how find page looks on all screen sizes" aria-label="Image of how home page looks on all screen sizes" />
 </div>
 
+* Hero Image
+
+- The hero image, as explained above, was chosen to enhance the UX and create a beautiful, inspirational feeling for the user to search with (see image choices above).
+
+* Search filters
+
+- There are three search filters on the site: city, category and name.
+
+- The search filters were modified in the python so that regardless of which case the user submits the request, it will automatically convert to lowercase and return the result capitalizing the first letter.
+
+- The search filters do not work unless the city and category are specified. This is pointed out in the text above on the hero image. I made this choice because you can search only with the city on the index page, and so I wanted the find page filters to be more specific to distinguish from the homepage search bar.
+
+- See features left to implement for more detail on the filters. I would have liked for this part of the site to be more complex, but had a limited timeframe.
+
+* Results
+
+- The results are laid out on a card on the right hand side of the page with horizontal rules in between each result.
+
+- Jinga templating |length was used, so that when results are returned they are counted and the number of results is displayed dynamically. I chose to do this as I wanted to experiment with filters in order to enhance my own ability to use the language. I also felt that it made the page look more professional.
+
+
 ### Login Page
 <div align="center">
     <img src="/static/images/login.png" target="_blank" rel="noopener" alt="Image of how login page looks on all screen sizes" aria-label="Image of how home page looks on all screen sizes" />
 </div>
+
+- The login page has a simple form which takes the user's email address and password. 
+
+- If the password or email address are incorrectly inputted, python returns the 'doesn't exist' variable, which essentially is a string that states that the incorrect username or password have been inputted. It also prompts the user to register if there is no existing account.
+
+- Templating was used and this message appears 
 
 ### Register Page
 <div align="center">
