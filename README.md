@@ -136,6 +136,10 @@ I opted for illustrations instead of photographs as I felt that they gave the si
 
 ## Wireframes
 
+Wireframes were made with [Balsamiq](https://balsamiq.com/) during the scope part of the project.
+
+[Home](src="/static/wireframes/homepage.pdf")
+
 ## Flowchart
 
 ## Development Planes
@@ -347,5 +351,18 @@ There are a lot of features I would have liked to implement in this project. How
 * Search bar by key word
 
 - Currently the search bar takes a city and searches for that. I would like to have a search bar by key word function where the user can type any word and everything with that word or phrase shows up, without need for grammatic accuracy, so for example 'london food vegan'.
+
+* Rating system
+
+- I would like to add a rating system from 1-5 where the user ranks the place they are creating from 1-5 so users can also know what to avoid.
+
+- Additional users can also add ratings to this, like most conventional sites, and so you can see how many people rated it where, and this can be filtered on the search page.
+
+* Carousel/Top places
+
+- Building on the rating system, I would like to create a carousel that takes the top rated places and displays them on the homepage.
+
+* All of these features are manageable however it was necessary to timebox the project, so basic functionality and design was prioritised. For this reason also, limited Javascript was used and the focus was on the backend.
+
 
 
