@@ -388,6 +388,48 @@ There are a lot of features I would have liked to implement in this project. How
 
 ## Information Architecture
 
+### Database Choice
+
+Although an SQL database would have suited this project, I chose to use Mongodb Atlas. This is because as a student this is currently my only opportunity to use Mongodb because my final project requires SQL. The database was therefore chosen not because it is the best suited for the project, but because as a learning developer I wanted to experiment.
+
+### Data Storage Types
+
+Data stored in Mongodb for this project takes the following forms:
+- ObjectId
+- String
+- Binary
+
+Due to time restrictions, I did not experiment with other data such as booleans and datetime, but in future I would like to add these to the project for further experimentation and learning.
+
+### Collections Data Structure
+
+There are two collections used in this project. The first is things_to_do, which is where all of the activity info is stored, and the second is users where the user info is stored.
+
+#### Users Collection
+
+| Title | Key in db | form validation type | Data type |
+--- | --- | --- | --- 
+Account ID | _id | None | ObjectId 
+first_name | first_name | text | string
+last_name | last_name | text | string
+Email Address | email | email | string
+Password | password | text | binary 
+
+#### Things To Do Collection
+
+| Title | Key in db | form validation type | Data type |
+--- | --- | --- | --- 
+Activity ID | _id | None | ObjectId 
+email | email(*user email) |text | string
+city | city |text | string
+category | category |text | string
+name | name |text | string
+description | description |text | string
+
+* When user is in session, their email is automatically added to any entries that they add to the database, so there is a cross-relation between the two collections.
+
+
+
 ## Technologies Used
 
 * [GitHub](https://github.com/) - Was used to remotely store the code online.
