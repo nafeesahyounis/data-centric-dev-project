@@ -4,7 +4,7 @@
 [Heroku App](https://solo-travel-handbook.herokuapp.com/)
 
 <div align="center">
-    <img src="/static/images/homepageimage.png" target="_blank" rel="noopener" alt="Image of how home page looks on all screen sizes" aria-label="Image of how home page looks on all screen sizes" />
+    <img src="/static/images/new-homepage-screenshot.png" target="_blank" rel="noopener" alt="Image of homepage looks on all screen sizes" aria-label="Image of how home page looks on all screen sizes" />
 </div>
 
 The Solo-Traveller Handbook was created by the developer, Nafeesah Younis, to serve the solo travelling community. I belong to many Facebook communities geared specifically towards women who like to travel solo & often when you look at sites like TripAdvisor and you search for activities geared towards people who travel solo, it takes quite a bit of filtering to find what you need.
@@ -184,6 +184,10 @@ I would have liked to better refine and design the footer, but the project had a
 
 ### Home Page
 
+<div align="center">
+    <img src="/static/images/new-homepage-screenshot.png" target="_blank" rel="noopener" alt="Image of homepage looks on all screen sizes" aria-label="Image of how home page looks on all screen sizes" />
+</div>
+
 * Hero Image
 
 - A Hero image is at the top of the Home Page. An illustration of a solo-traveller staring off into an adventure was chosen in order to evoke feelings of travel, adventure and longing.
@@ -243,6 +247,11 @@ I would have liked to better refine and design the footer, but the project had a
     <img src="/static/images/login.png" target="_blank" rel="noopener" alt="Image of how login page looks on all screen sizes" aria-label="Image of how home page looks on all screen sizes" />
 </div>
 
+* Important note about login and registration system: An authentication system was not required for this project. However, I chose to create it more for the purpose of experimenting with Jinga and creating a reason to use functionality such as hiding the navbar depending on whether the user is in session, and a redirect for a permission denied page. I wanted to experiment with having different things visible depending on something and having an authentication system was the best way to really experiment both in the templates and in the app.py file.
+
+For this reason, the login system was not heavily tested and I'm sure that it could be vastly improved. As is mentioned in the features to implement section, the timeline for both the Data Centric Module and the Milestone project was one month, and so things were heavily timeboxed and the Login system was not refined or prioritised.
+
+
 - The login page has a simple form which takes the user's email address and password. 
 
 - If the password or email address are incorrectly inputted, python returns the 'doesn't exist' variable, which essentially is a string that states that the incorrect username or password have been inputted. It also prompts the user to register if there is no existing account.
@@ -260,6 +269,8 @@ I would have liked to better refine and design the footer, but the project had a
 
 - The password is hashed in the python and securely stored in the mongodb database.
 
+- If the user inputs something incorrectly, the username already exists or fields are left blank, then already_exists is returned which is a string that alerts the user about the error in the template.
+
 
 ### Create Activity Page
 
@@ -267,12 +278,74 @@ I would have liked to better refine and design the footer, but the project had a
     <img src="/static/images/create-activity.png" target="_blank" rel="noopener" alt="Image of how create page looks on all screen sizes" aria-label="Image of how home page looks on all screen sizes" />
 </div>
 
+* The Create Activity page has a hero image that has been detailed above in Design Choices.
+
+* There is a form with the fields: City, name, category and description. Code was added so that it is not case sensitive and it automatically convers to lowercase and returns with the correct casing.
+
+* If the name, city and category of the listing are not inputted, then it cannot be submitted and a message is returned from the python variable not_submitted that gives the user feedback and tells them that one of the three options is missing.
+
 ### Manage Listings Page
 
 <div align="center">
     <img src="/static/images/managelistings.png" target="_blank" rel="noopener" alt="Image of how manage listings page looks on all screen sizes" aria-label="Image of how home page looks on all screen sizes" />
 </div>
 
+* The manage listings page has the same hero image as the Create Activity Page in order for consistency as these are the two account elements when the user logs in.
 
+* Each listing that has been created by the user is displayed here, and next to it is an edit and delete button.
+
+* The delete button pulls up a modal that asks the user whether or not they are sure they want to delete their listing. This was implemented in order to avoid the user accidentally deleting something and to give them a chance to turn back, so two clicks are required for something to be removed from the database rather than one.
+
+* The Edit button takes the user to the edit activity form. 
+
+### Edit Activity Page
+
+<div align="center">
+    <img src="/static/images/edit.png" target="_blank" rel="noopener" alt="Image of how edit page looks on all screen sizes" aria-label="Image of how home page looks on all screen sizes" />
+</div>
+
+* The Edit Activity Page is a simple form that takes the data of the listing clicked from manage listings and populates the form accordingly.
+
+* The user can change any of the data and resubmit and it is not case sensitive. 
+
+## Existing Features
+
+There are a lot of features I would have liked to implement in this project. However, the time was very tight and it was important to keep it minimal and purposeful.
+
+* Filters
+
+- Currently there are only three filters on the search page and 4 options for the Create Activity page. I would have liked to make this a lot more complex. I experimented with price, days of the week and contact information. I tried using materialize selectors and other features. However, it was important to timebox the project and it took far too long to consolidate so additional filters were removed for the time being, but will be added at a later point.
+
+* User feedback modals
+
+- A modal already exists for when the user tries to delete. However, I would have liked to use more Javascript and create a tighter flow of user feedback with JS modals. 
+
+- When the user adds an activity, I plan to create a modal that reconfirms what the user has added in the fields and asks if they want to submit or go back and make more changes. This way the user can check spellings, syntax etc or add anything they've forgotten.
+
+- I would like to have an additional modal on the edit page like mentioned above for add activity.
+
+- A modal for when the user registers or logs in welcoming them to the site instead of redirecting to the index page would have also been better in terms of user site feedback.
+
+* Tighter authentication system
+
+- The authentication system was created using a combination of youtube videos and github code from other sources (see credits) and it was created in order to experiment with if statements in the templating language that concealed features and elements depending on whether user is logged in.
+
+- This provided an excellent opportunity for me to experiment with and become more confident in Flask, using the database etc, but the authentication system is not fully secure as it was not prioritised and I plan to refine it at a later stage.
+
+* My Account Page
+
+- It would be useful if the user could change their account details and so I plan to create a my account page which has their account settings and lets them edit details.
+
+* Favourites
+
+- Currently the Manage My Listings page includes only the listings that the user has created. I would like to add an option on the Search Activity Page where the user can save their favourite listings created by other users and add them to Manage My listings.
+
+* Sort filters
+
+- Currently the Manage My Listings page displays everything the user has created. Ideally there would be an option to filter on this page so that when the user has a lot of things in their account, they can search through their own listings instead of having to scroll.
+
+* Search bar by key word
+
+- Currently the search bar takes a city and searches for that. I would like to have a search bar by key word function where the user can type any word and everything with that word or phrase shows up, without need for grammatic accuracy, so for example 'london food vegan'.
 
 
