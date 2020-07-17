@@ -1,83 +1,76 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Arimo&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}" type="text/css">
-  
-</head>
-
-<body>
-<header>
-    <nav>
-        <div class="nav-wrapper">
-            <a href="{{url_for('index')}}" class="brand-logo"><img src="static/images/logo-resized.png"></a>
-
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                {% if 'email' not in session %}
-                    <li><a href="{{url_for('index')}}">Home</a></li>
-                    <li><a href="{{url_for('find')}}">Search Activity</a></li>
-                    <li><a href="{{url_for('register')}}">Register</a></li>
-                    <li><a href="{{url_for('login')}}">Login</a></li>
-                {% else %}
-                    <li><a href="{{url_for('index')}}">Home</a></li>
-                    <li><a href="{{url_for('find')}}">Search Activity</a></li>
-                    <li><a href="{{url_for('managemylistings')}}">Manage My Listings</a></li>
-                    <li><a href="{{url_for('addactivity')}}">Create Activities</a></li>
-                    <li><a href="{{url_for('logout')}}">Logout</a></li>
-                {% endif %}
-            </ul>
-                  <ul class="side-nav" id="mobile-demo">
-                   {% if 'email' not in session %}
-                    <li><a href="{{url_for('index')}}">Home</a></li>
-                    <li><a href="{{url_for('find')}}">Search Activity</a></li>
-                    <li><a href="{{url_for('register')}}">Register</a></li>
-                    <li><a href="{{url_for('login')}}">Login</a></li>
-                {% else %}
-                    <li><a href="{{url_for('index')}}">Home</a></li>
-                    <li><a href="{{url_for('find')}}">Search Activity</a></li>
-                    <li><a href="{{url_for('managemylistings')}}">Manage My Listings</a></li>
-                    <li><a href="{{url_for('addactivity')}}">Create Activities</a></li>
-                    <li><a href="{{url_for('logout')}}">Logout</a></li>
-                {% endif %}
-                  </ul>
-
-        </div>
-    </nav>
-    </header>
-
-    <main>
-
-    {% block content %}
-    {% endblock %}
-    </main>
-
-    <footer>
-          <div class="container">
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+      <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Arimo&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}" type="text/css">
+   </head>
+   <body>
+      <header>
+         <!--NAVBAR and LOGO, Navbar changes to hamburger menu in mobile view for ease of navigation on smaller screen size-->
+         <!--Templating is used to if statement checks whether user is in session and changes which elements of navbar are visible depending on if user is in session-->
+         <nav>
+            <div class="nav-wrapper">
+               <a href="{{url_for('index')}}" class="brand-logo"><img src="static/images/logo-resized.png"></a>
+               <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+               <ul id="nav-mobile" class="right hide-on-med-and-down">
+                  {% if 'email' not in session %}
+                  <li><a href="{{url_for('index')}}">Home</a></li>
+                  <li><a href="{{url_for('find')}}">Search Activity</a></li>
+                  <li><a href="{{url_for('register')}}">Register</a></li>
+                  <li><a href="{{url_for('login')}}">Login</a></li>
+                  {% else %}
+                  <li><a href="{{url_for('index')}}">Home</a></li>
+                  <li><a href="{{url_for('find')}}">Search Activity</a></li>
+                  <li><a href="{{url_for('managemylistings')}}">Manage My Listings</a></li>
+                  <li><a href="{{url_for('addactivity')}}">Create Activities</a></li>
+                  <li><a href="{{url_for('logout')}}">Logout</a></li>
+                  {% endif %}
+               </ul>
+               <ul class="side-nav" id="mobile-demo">
+                  {% if 'email' not in session %}
+                  <li><a href="{{url_for('index')}}">Home</a></li>
+                  <li><a href="{{url_for('find')}}">Search Activity</a></li>
+                  <li><a href="{{url_for('register')}}">Register</a></li>
+                  <li><a href="{{url_for('login')}}">Login</a></li>
+                  {% else %}
+                  <li><a href="{{url_for('index')}}">Home</a></li>
+                  <li><a href="{{url_for('find')}}">Search Activity</a></li>
+                  <li><a href="{{url_for('managemylistings')}}">Manage My Listings</a></li>
+                  <li><a href="{{url_for('addactivity')}}">Create Activities</a></li>
+                  <li><a href="{{url_for('logout')}}">Logout</a></li>
+                  {% endif %}
+               </ul>
+            </div>
+         </nav>
+      </header>
+      <main>
+         {% block content %}
+         {% endblock %}
+      </main>
+      <!--Basic Materialize footer containing copywright info for site as well as name of developer and contact info-->
+      <footer>
+         <div class="container">
             <div class="row">
-              <div class="col l6 s12">
-                <h5 class="white-text">The-Solo-Traveller-Handbook</h5>
-                <p class="grey-text text-lighten-4">Created by Developer Nafeesah Younis</p>
-                <p> Contact info: nafeesah.youniss@gmail.com </p>
-              </div>
+               <div class="col l6 s12">
+                  <h5 class="white-text">The-Solo-Traveller-Handbook</h5>
+                  <p class="grey-text text-lighten-4">Created by Developer Nafeesah Younis</p>
+                  <p> Contact info: nafeesah.youniss@gmail.com </p>
+               </div>
             </div>
-          </div>
-          <div class="footer-copyright">
+         </div>
+         <div class="footer-copyright">
             <div class="container">
-            © 2020 Copyright Nafeesah Younis
-            
+               © 2020 Copyright Nafeesah Younis
             </div>
-          </div>
-        </footer>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-    <script src="{{url_for('static', filename='js/main.js')}}"></script>
-</body>
+         </div>
+      </footer>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+      <script src="{{url_for('static', filename='js/main.js')}}"></script>
+   </body>
 </html>
