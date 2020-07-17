@@ -6,16 +6,17 @@ from os import path
 from bson.objectid import ObjectId
 from passlib.hash import pbkdf2_sha256
 import json
-if path.exists("env.py"):
+if os.path.exists("env.py"):
     import env
 
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'solo_traveller_handbook'
 app.config["MONGO_URI"] = os.environ.get('MONGO_URI')
+app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 # Set the secret key to some random bytes. Keep this really secret!
-app.secret_key = b'\x81\xa7\x9b\x8bq\x16x\x0b~A\x9c\xbb>\xe6\xef-'
+#app.secret_key = b'\x81\xa7\x9b\x8bq\x16x\x0b~A\x9c\xbb>\xe6\xef-'
 
 
 @app.route('/')
@@ -82,7 +83,7 @@ def find_activity():
         result.update(name)
     final_result = list(mongo.db.things_to_do.find(result))
     print(final_result)
-    no_results="No results found"
+    no_results = "No results found"
     return render_template("pages/find.html",
                            results=final_result,
                            no_results=no_results,
@@ -117,13 +118,11 @@ def login():
                                        doesnt_exist=doesnt_exist)
 
 
-
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
         users = mongo.db.users
         existing_user = users.find_one({'email': request.form.get('email')})
-
         if existing_user is None:
             password = request.form['password']
             _hash = pbkdf2_sha256.hash(password)
@@ -232,9 +231,8 @@ def delete_activity(user_activity_id):
 
 @app.route('/addactivity')
 def addactivity():
-
     if 'email' in session:
-        return render_template("pages/addactivity.html", 
+        return render_template("pages/addactivity.html",
                                categories=mongo.db.things_to_do.find())
     else:
         return render_template("pages/permissiondenied.html")
@@ -242,7 +240,6 @@ def addactivity():
 
 @app.route('/insert_activity', methods=['POST'])
 def insert_activity():
-
     email = session['email']
     things_to_do = mongo.db.things_to_do
     city = request.form.get('city')
