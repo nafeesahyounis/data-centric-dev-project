@@ -143,6 +143,45 @@ I opted for illustrations instead of photographs as I felt that they gave the si
 # Features
 ## Existing Features
 
+* Navbar
+
+The navbar is on each page and on smaller screens it turns into a hamburger menu on the left hand corner of the screen.
+
+The following items are present on the navbar when the user is not logged in:
+
+- Home
+
+- Search Activity 
+
+- Login
+
+- Register
+
+When the user is logged in, the following items are visible:
+
+- Home
+
+- Search Activity
+
+- Create Activity
+
+- Manage my Listings
+
+- Logout
+
+Python code was used and the session functionality in Flask was implemented, so when the user is in session they are logged in, and the second navbar appears:
+
+if 'email' in session:
+
+Jinga was also used in the base template in order to hide the navbar depending on if the user is in the session.
+
+* Footer
+
+Due to time constraints on the project, the footer was kept very simple and displays basic contact information and the name of the developer as well as Copywright info.
+
+I would have liked to better refine and design the footer, but the project had a very strict timeline and so priority was given to the Python backend.
+
+
 ### Home Page
 
 ### Find Page
