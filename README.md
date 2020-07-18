@@ -534,5 +534,64 @@ Currently the site is deploed on [Heroku](https://www.heroku.com/) using the **m
     - **PASSWORD** : `<you own email password>`
 5. Your app should be successfully deployed to Heroku at this point.
 
+## Testing
+
+### Manual Testing
+
+Each page was manually tested throughout the project. 
+
+- All pages were tested for responsiveness on an iphone SE, a larger Motorola, an ipad, an ipad pro, desktop and monitor. They were also tested using the 'inspect' on the developer tools.
+
+- The project was due for submission on the 7th of July. However, upon testing there were major issues in the responsiveness and so a further two weeks were added resolving bugs. It was found that two style sheets had been incorrectly created and the wrong version of Materialize was being referenced, hence all the discrepancies.
+
+
+Homepage:
+
+- The homepage search bar and buttons were both tested, as was the navbar on both screen sizes. 
+
+- For the search bar, I typed cities that I knew were in the database with different cases eg PRAGUE Prague prague to make sure that it wasn't case sensitive.
+
+Find:
+
+- A lot of manual testing was done on the find page to ensure that it correctly filtered. Testing was done throughout development of the project. The print command was used throughout development to check to see if each piece of code was working.
+
+Create:
+
+- The create page was manually tested to ensure that it converted to lowercase. The print command was also used to make sure things were correctly working.
+
+- The error message was also testing using the print command and I tried many variations of leaving different mandatory fields empty to make it sure it was working correctly.
+
+- I also had it reviewed in peer code review to make sure that users were able to create an activity and then search for it afterwards on the find page.
+
+Manage Listings, edit and delete:
+
+- Manage listings was similarly manually tested like the create page and the buttons were tested by various users. I created many fake entries and checked to make sure the form fields were correctly populated on the edit page, that the delete modal correctly popped up and that all the listings were displayed correctly.
+
+Authentication:
+
+- I created various test accounts eg test@anothertest.com to make sure that the authentication was working correctly. I checked in the Mongodb database to make sure that the passwords were being hashed correctly also.
+
+- As mentioned earlier, basic testing was done with the authentication system as the purpose was to make sure that the permission denied page showed appropriately, to experiment with error messages and navbar elements and content being hidden. These were the things that were prioritised in testing, rather than the strength of the authentication as it was not mandatory for the project.
+
+
+### Validators
+
+The following validators were used to check the code:
+
+**HTML**
+- [W3C HTML Validator](https://validator.w3.org) - Overall the HTML validator was great and I used it to test all of my pages. However, it doesn't recognise the Jinja templating so it pulled up a lot of errors for the Jinja and I had to disregard those.
+
+**CSS**
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) - Generally this worked great in terms of making sure there were no major errors in the CSS. It did pick up one error, where it said that the media queries are deprecated. I searched for the latest documentation but could not find anything substantial online. Due to the heavy time-boxing of the project, I decided to leave this as media queries were only really used for the hero images and once the appropriate documentation is found it should be a quick fix, but I didn't want to delay submission based on this.
+
+**Python**
+
+- [PEP8 Online](http://pep8online.com/) For the python, firstly I used the built in tools in gitpod and checked through the code for the underline whenever something was incorrect eg cornflakes. I manually went through the code and corrected everything and I also checked in the PEP8 tool to see if there were any major errors. This was done a few times throughout the project.
+
+### Known Issues
+
+Currently the logo image does not display correctly and overflows from the container. This is a recognised issue, and I attempted to solve it by playing around with media queries and resizing the image but I was unable to resolve it. I have made a note of this and will resolve at a later point.
+
+
 
 ## Credits
