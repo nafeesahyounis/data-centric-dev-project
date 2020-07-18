@@ -197,7 +197,7 @@ Python code was used and the session functionality in Flask was implemented, so 
 
 if 'email' in session:
 
-Jinga was also used in the base template in order to hide the navbar depending on if the user is in the session.
+Jinja was also used in the base template in order to hide the navbar depending on if the user is in the session.
 
 * Footer
 
@@ -263,7 +263,7 @@ I would have liked to better refine and design the footer, but the project had a
 
 - The results are laid out on a card on the right hand side of the page with horizontal rules in between each result.
 
-- Jinga templating |length was used, so that when results are returned they are counted and the number of results is displayed dynamically. I chose to do this as I wanted to experiment with filters in order to enhance my own ability to use the language. I also felt that it made the page look more professional.
+- Jinja templating |length was used, so that when results are returned they are counted and the number of results is displayed dynamically. I chose to do this as I wanted to experiment with filters in order to enhance my own ability to use the language. I also felt that it made the page look more professional.
 
 
 ### Login Page
@@ -511,6 +511,28 @@ The application can now be run the application with the command:
 ```
 python app.py
 ```
+From here, a port should be opened depending on your IDE which will allow you to view the application.
+
+## Run the project on Heroku
+
+Currently the site is deploed on [Heroku](https://www.heroku.com/) using the **master** branch on GitHub. These were the steps taken to set it up on Heroku:
+
+1. A **requirements.txt** file was created through the following command. This enabled Heroku to install the necessary dependencies to run the app.
+    - `sudo pip3 freeze --local > requirements.txt`
+    - My file can be found [here](https://github.com/nafeesahyounis/data-centric-dev-project/blob/master/requirements.txt).
+2. Create a **Procfile** . This tells Heroku what kind of application it is deploying, and how it should be run.
+    - `echo web: python run.py > Procfile`
+    - My file can be found [here](https://github.com/nafeesahyounis/data-centric-dev-project/blob/master//Procfile).
+3. Sign up for a free Heroku account, create your project app, and click the **Deploy** tab. From here you can *Connect GitHub* as the Deployment Method, and choose *Enable Automatic Deployment*.
+4. In the Heroku **Settings** tab, click on the *Reveal Config Vars* button to configure environmental variables as follows:
+    - **IP** : `0.0.0.0`
+    - **PORT** : `8080`
+    - **MONGO_URI** : `<link to your Mongo DB>`
+    - **SECRET_KEY** : `<your own secret key>`
+    - **MY_ADDRESS** : `<your own email address>`
+    - **SEND_TO** : `<recipient email address>`
+    - **PASSWORD** : `<you own email password>`
+5. Your app should be successfully deployed to Heroku at this point.
 
 
 ## Credits
