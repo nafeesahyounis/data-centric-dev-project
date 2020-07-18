@@ -384,6 +384,10 @@ There are a lot of features I would have liked to implement in this project. How
 
 - Building on the rating system, I would like to create a carousel that takes the top rated places and displays them on the homepage.
 
+* More content on footer, and generally cleaner design
+
+- A lot of the design elements, in particular the footer, could use some cleanup and refinement and I intend to do this at a later stage.
+
 * All of these features are manageable however it was necessary to timebox the project, so basic functionality and design was prioritised. For this reason also, limited Javascript was used and the focus was on the backend.
 
 ## Information Architecture
@@ -428,6 +432,8 @@ description | description |text | string
 
 * When user is in session, their email is automatically added to any entries that they add to the database, so there is a cross-relation between the two collections.
 
+* Given that Mongodb methods are case sensitive, all data is stored in lowercase for the things_to_do collection. Additional functionality has been added to all forms related to this database (searchbar,find, add & edit). This functionality converts all inputted form data to a lowercase string, then into a lowercase dict and then it is returned with the proper casing in the search. This is for consistency & better UX when searching and adding.
+
 
 
 ## Technologies Used
@@ -459,4 +465,19 @@ description | description |text | string
     - [MongoDB Atlas](https://www.mongodb.com/) - this is where the database was stored.
 
 ## Deployment
+
+## Running the project locally
+
+In order for this project to be run on your own IDE, you must do the following:
+
+Make sure you have: an IDE, such as gitpod, Webstorm or Visual Studio.
+
+It is necessary for these things to be installed on your machine:
+- [PIP](https://pip.pypa.io/en/stable/installing/)
+- [Python 3](https://www.python.org/downloads/)
+- [Git](https://gist.github.com/derhuerst/1b15ff4652a867391f03)
+- Either a [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) account, or MongoDB locally running on your machine. 
+    - Setting up the atlas account is done like so: [here](https://docs.atlas.mongodb.com/).
+
+
 ## Credits
