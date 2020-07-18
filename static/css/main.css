@@ -121,10 +121,13 @@ img {
 }
 
 .my-listings {
-	background-color: white;
+    background-color: #FFF7ED;
 }
 
+.registration{
+    background-color: rgba(102, 133, 152, 0.9);
 
+}
 /* Place text in the middle of the image */
 
 .hero-text {
