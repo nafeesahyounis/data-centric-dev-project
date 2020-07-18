@@ -470,7 +470,7 @@ description | description |text | string
 
 In order for this project to be run on your own IDE, you must do the following:
 
-Make sure you have: an IDE, such as gitpod, Webstorm or Visual Studio.
+Firstly, make sure you have: an IDE, such as gitpod, Webstorm or Visual Studio.
 
 It is necessary for these things to be installed on your machine:
 - [PIP](https://pip.pypa.io/en/stable/installing/)
@@ -478,6 +478,39 @@ It is necessary for these things to be installed on your machine:
 - [Git](https://gist.github.com/derhuerst/1b15ff4652a867391f03)
 - Either a [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) account, or MongoDB locally running on your machine. 
     - Setting up the atlas account is done like so: [here](https://docs.atlas.mongodb.com/).
+
+Secondly, you need to save the github repository at https://github.com/nafeesahyounis/data-centric-dev-project through locating the "download zip" button at the top of the page, clicking it and then extracting the zip file. If Git is already installed on your system, the repository can be cloned with the command: 
+```
+git clone https://github.com/nafeesahyounis/data-centric-dev-project
+```
+It'd be best to use a virtual environment for the Python interpreter. Python's built in environment is:
+```
+python -m .venv venv
+```  
+Your python command might be different, depending on your IDE and operating system.
+
+After this, you can activate venv like so:
+```
+.venv\Scripts\activate 
+```
+This command might also be different depending on your os and IDE, so check the [Python Documentation on virtual environments](https://docs.python.org/3/library/venv.html).
+
+You can locally upgrade pip with this if necessary:
+```
+pip install --upgrade pip.
+```
+
+Following this, you would need to download all requirements modules: 
+```
+pip -r requirements.txt.
+```
+
+Then, you would create a file like so: `.flaskenv` and inside the .flaskenv file, you would make a SECRET_KEY variable and a MONGO_URI to link to your own database. You'd need to name the database `solo-traveller-handbook`. There would be two collections, one being `users` and the other `things_to_do`. 
+
+The application can now be run the application with the command:
+```
+python app.py
+```
 
 
 ## Credits
