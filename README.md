@@ -600,6 +600,38 @@ This user story has been partially achieved. Currently the site allows small bus
 
 In the footer, there is an email address to directly contact the developer. In future, I would like to create a contact form page that will send user input to my email.
 
+### Business Stories
+
+1) **As a business owner, I would like to be able to create my listing quickly and easily.**
+
+Creating an account is quick and efficient on the site and there is both a button on the index page and an option in the navbar. As soon as your account is created, you can immediately start creating activities and these activities immediately enter the database and can be found by visitors. 
+
+The forms for creating and searching are also simple and intuitive, so it is quick and easy to create listings.
+
+2) **As a business owner, I would like visitors to be able to see my listing ASAP so that I can quickly generate traffic.**
+
+As mentioned under the first user story, upon creation the listing immediately enters the database and can immediately be searched for via the search page.
+
+3) **As a business owner, I would like to be able to manage my listings and edit or delete them as I please.**
+
+There is a dedicated page with buttons next to each created listing for delete and edit. The edit form is easy and intuitive to use and pre-populates with the current data to save time for the user.
+
+4) **As a business owner, I would like to be able to contact the creator of the site easily in case I encounter any problems.**
+
+The email address of the developer is on the footer of every page.
+
+5) **As a business owner, I would like my data to be safe and not accessible to anyone.**
+
+Passwords were hashed in the Python and stored in hashed form for security purposes. This business story has therefore partially been resolved, but more in depth security practices for protecting user data were not researched and implemented by the developer as the project was timeboxed and the authentication system was not prioritised.
+
+6) **As a business owner, I would like an easy to use interface that I can navigate within a few clicks.**
+
+There are buttons on nearly every page leading to the next intuitive step and the navbar is also clear and easy to access. 
+
+7) **As a business owner, I would like the platform that I advertise on to be aesthetically pleasing and inspire my potential customers to travel and search.**
+
+Beautiful illustrations were selected for hero images on the pages. Vibrant colours were also chosen for the navbar and footer in order to make the site more inviting but not overwhelming.
+
 ### Manual Testing
 
 Each page was manually tested throughout the project. 
