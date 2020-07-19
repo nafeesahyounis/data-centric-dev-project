@@ -546,6 +546,7 @@ Each page was manually tested throughout the project.
 
 - The project was due for submission on the 7th of July. However, upon testing there were major issues in the responsiveness and so a further two weeks were added resolving bugs. It was found that two style sheets had been incorrectly created and the wrong version of Materialize was being referenced, hence all the discrepancies.
 
+- Each page was manually tested on the following browsers: Safari, Google Chrome, Internet Explorer and Firefox.
 
 Homepage:
 
