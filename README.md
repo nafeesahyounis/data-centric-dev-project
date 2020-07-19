@@ -28,6 +28,11 @@ I felt that it would be a good idea to create a database where all of the recomm
 2. [Features](#features)
     - [Existing Features](#existing-features)
     - [Features Left to Implement](#features-left-to-implement)
+3. [Information Architecture](#information-architecture)
+4. [Technologies Used](#technologies-used)
+5. [Deployment](#deployment)
+6. [Testing](#testing)
+
 
 
 # UX
