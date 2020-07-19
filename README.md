@@ -30,6 +30,8 @@ I felt that it would be a good idea to create a database where all of the recomm
 4. [Technologies Used](#technologies-used)
 5. [Deployment](#deployment)
 6. [Testing](#testing)
+7. [Credits](#credits)
+
 
 
 
@@ -457,7 +459,6 @@ description | description |text | string
 
 * [GitHub](https://github.com/) - Was used to remotely store the code online.
 * [Picresize](https://picresize.com/) - Used to crop images.
-* Images were taken from [Freepik](https://www.freepik.com/) and [Pixabay](https://pixabay.com/).
 * [Am I Responsive](http://ami.responsivedesign.is/) this was used in the README file to show the responsive web pages.
 
 
@@ -681,3 +682,20 @@ Currently the logo image does not display correctly and overflows from the conta
 
 
 ## Credits
+
+### Content
+
+* For my authentication system, I used a youtube video created by [PrettyPrinted](https://www.youtube.com/channel/UC-QDfvrRIDB6F0bIO4I4HkQ) on how to create a login system with Mongodb and Flask.
+I had a problem with this video's use of bcrypt for hash password, and so I used a repo created by a Code Institute tutor [kevin-ci](https://github.com/kevin-ci/flask-mongo-logins/blob/master/app.py).
+
+* All Jquery was taken from Materialize.
+
+* Images were taken from [Freepik](https://www.freepik.com/) and [Pixabay](https://pixabay.com/).
+
+* CSS sode for the hero images as taken from [W3Schools](https://www.w3schools.com/howto/howto_css_hero_image.asp).
+
+
+
+
+
+
