@@ -179,15 +179,6 @@ Wireframes were made with [Balsamiq](https://balsamiq.com/) during the scope par
 [Permission Denied](https://ibb.co/pfKjwrJ)
 
 
-
-
-
-
-
-## Flowchart
-
-## Development Planes
-
 # Features
 ## Existing Features
 
