@@ -22,8 +22,6 @@ I felt that it would be a good idea to create a database where all of the recomm
         - [Business Stories](#business-stories)
     - [Design Choices](#design-choices)
     - [Wireframes](#wireframes)
-    - [Flowchart](#flowchart)
-    - [PDF](#pdf)
 
 2. [Features](#features)
     - [Existing Features](#existing-features)
