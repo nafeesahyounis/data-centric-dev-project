@@ -538,6 +538,10 @@ Currently the site is deploed on [Heroku](https://www.heroku.com/) using the **m
 
 ### User Stories Testing
 
+#### Visitor Stories 
+
+1) **As someone who is visiting the Solo-Traveller-Handbook, I want to immediately know what the site is for and what are the different features/things I can do on the site.**
+
 ### Manual Testing
 
 Each page was manually tested throughout the project. 
