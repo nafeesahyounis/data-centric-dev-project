@@ -683,8 +683,6 @@ Currently the logo image does not display correctly and overflows from the conta
 
 ## Credits
 
-### Content
-
 * For my authentication system, I used a youtube video created by [PrettyPrinted](https://www.youtube.com/channel/UC-QDfvrRIDB6F0bIO4I4HkQ) on how to create a login system with Mongodb and Flask.
 I had a problem with this video's use of bcrypt for hash password, and so I used a repo created by a Code Institute tutor [kevin-ci](https://github.com/kevin-ci/flask-mongo-logins/blob/master/app.py).
 
