@@ -11,6 +11,25 @@ The Solo-Traveller Handbook was created by the developer, Nafeesah Younis, to se
 
 I felt that it would be a good idea to create a database where all of the recommendations made by the solo-travelling community were in one place, hence the birth of the solo-traveller-handbook.
 
+## Table of Contents
+1. [UX](#ux)
+    - [Goals](#goals)
+        - [Visitor Goals](#visitor-goals)
+        - [Business Goals](#business-goals)
+        - [Solo Traveller Handbook Goals](#solo-traveller-handbook-goals)
+    - [User Stories](#user-stories)
+        - [Visitor Stories](#visitor-stories)
+        - [Business Stories](#business-stories)
+    - [Design Choices](#design-choices)
+    - [Wireframes](#wireframes)
+    - [Flowchart](#flowchart)
+    - [PDF](#pdf)
+
+2. [Features](#features)
+    - [Existing Features](#existing-features)
+    - [Features Left to Implement](#features-left-to-implement)
+
+
 # UX
 
 ## Goals
