@@ -536,6 +536,8 @@ Currently the site is deploed on [Heroku](https://www.heroku.com/) using the **m
 
 ## Testing
 
+### User Stories Testing
+
 ### Manual Testing
 
 Each page was manually tested throughout the project. 

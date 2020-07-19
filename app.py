@@ -82,7 +82,6 @@ def find_activity():
         name = {'name': request.form.get('name')}
         result.update(name)
     final_result = list(mongo.db.things_to_do.find(result))
-    print(final_result)
     no_results = "No results found"
     return render_template("pages/find.html",
                            results=final_result,
