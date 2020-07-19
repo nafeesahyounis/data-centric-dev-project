@@ -380,6 +380,10 @@ There are a lot of features I would have liked to implement in this project. How
 
 - Additional users can also add ratings to this, like most conventional sites, and so you can see how many people rated it where, and this can be filtered on the search page.
 
+* Pricing filter
+
+- I'd like the site to cater to travellers on a budget, so in future I will add a pricing field and a sort filter that will filter by price. 
+
 * Carousel/Top places
 
 - Building on the rating system, I would like to create a carousel that takes the top rated places and displays them on the homepage.
@@ -541,6 +545,36 @@ Currently the site is deploed on [Heroku](https://www.heroku.com/) using the **m
 #### Visitor Stories 
 
 1) **As someone who is visiting the Solo-Traveller-Handbook, I want to immediately know what the site is for and what are the different features/things I can do on the site.**
+
+As soon as you enter the Solo-Traveller-Handbook, there is a short introduction in addition to a search bar and two card panels with minimum text. These have buttons leading to further features. It is therefore immediately clear how and for what the app can be used.
+
+2) **As someone who is visiting the Solo-Traveller-Handbook, I want to enjoy navigating the site. Be able to navigate it with ease and not feel frustrated by inconsistencies or a lack of buttons.**
+
+The navigation menu is clearly placed according to convention at the top of the page with a hamburger menu on small screen sizes. Users are given two options for navigation, the navbar and also on each page there is a button leading to another page. For example, on the index page there are buttons for the search and create account and login pages, and when the user is logged in this changes to create activity and manage listings.
+
+On the Manage Listings page, there is a button to create more activities; on the login there is the option to register; on the register there is an option to login; on create activity there is an option to manage listings.
+
+There is therefore always a button for the next logical step, depending on which page you are on.
+
+3) **As someone who is visiting the site, I want to have something beautiful yet not overwhelming to look at, in order to inspire me to travel.**
+
+I decided to use illustrations for the Hero Images for the purpose of creating a more fantasy, adventurous feel. The color schemes are gentle and not overpowering and they do not occupy too much of the page on all pages other than the index page, where it is necessary for the hero image to be larger as it frames the search bar. 
+
+4) **As someone who is visiting the site, I want to be able to search for what I need immediately, without too much navigation and without having to read through too much information.**
+
+There is a searchbar as soon as you enter the site, in addition to a button on the index page that leads you to the Search Activity Page. It is also the second element on the navbar for quick and easy access.
+
+5) **As someone who is travelling and may not have a larger device, I want to be able to search for things easily on my phone or tablet.**
+
+Hero images were resized and made bigger for smaller screens and text was checked for responsiveness and visibility on smaller screen sizes. The font choice, Arimo, was also made as it is clear and reads easily on smaller screens.
+
+6) **As a traveller with a limited budget, I want to be able to find recommendations that aren't expensive to access.**
+
+This user story has been partially achieved. Currently the site allows small business owners to create their listings on the site and it is not restricted to big businesses. However, there is currently no search filter for pricing and this is a feature I plan to implement in the future, in addition to a sort filter that will filter by price.
+
+7) **As a user of the site, I would like to be able to contact the creator of the site easily and quickly if I encounter any issues.**
+
+In the footer, there is an email address to directly contact the developer. In future, I would like to create a contact form page that will send user input to my email.
 
 ### Manual Testing
 
