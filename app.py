@@ -121,21 +121,24 @@ def login():
 def register():
     if request.method == 'POST':
         users = mongo.db.users
-        existing_user = users.find_one({'email': request.form.get('email')})
+        email = request.form.get('email')
+        name= request.form.get('first_name')
+
+        existing_user = users.find_one({'email': email})
+
         if existing_user is None:
             password = request.form['password']
             _hash = pbkdf2_sha256.hash(password)
             new_user = users.insert_one({
-                                         'first_name': request.form.get('first_name'),
+                                         'first_name': name,
                                          'last_name': request.form.get('last_name'),
-                                         'email': request.form.get('email'),
+                                         'email': email,
                                          'password': _hash})
-            session['email'] = request.form.get('email')
-            name = new_user.get('first_name')
+            session['email'] = email
             return render_template('pages/index.html',
                                    name=name)
         return render_template("pages/register.html",
-                               already_exists="Either you inputted something incorrectly, didn't fill in all the fields or that username already exists. Please try again :)")
+                               already_exists='That Username Already Exists!')
     else:
         return render_template("pages/register.html")
 
@@ -275,4 +278,4 @@ def insert_activity():
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
-            debug=False)
+            debug=True)
