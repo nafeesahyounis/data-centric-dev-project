@@ -231,7 +231,7 @@ def update_activity(user_activity_id):
         new_name = json.loads(name_lower)
         city_lower = json.dumps(city).lower()
         new_city = json.loads(city_lower)
-        activities.update({'_id': ObjectId(user_activity_id)},
+        activities.updateOne({'_id': ObjectId(user_activity_id)},
                           {
                             'user': email,
                             'name': new_name,
