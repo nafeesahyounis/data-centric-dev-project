@@ -133,7 +133,7 @@ def register():
        Firstly, this checks if the method is POST. If not, it/
        just returns the form. If it is, email address entered already/
        is searched for in database and if it already exists it returns/
-       the already_exists variable in the template to give user/ 
+       the already_exists variable in the template to give user/
        feedback. If it doesn't exist, then it inserts all the info/
        into the collections 'users' and creates a new user. When new user/
        is created user is redirected to index page and their name is displayed/
@@ -260,6 +260,11 @@ def addactivity():
 
 @app.route('/insert_activity', methods=['POST'])
 def insert_activity():
+    """First, all variables are created. Second, the code checks/
+       if city is empty, if category is empty and if name is empty./
+       If any of these fields are empty, form data is not submitted/
+       and there is an error displayed to user asking them to enter/
+       mandatory fields. If all fields have been entered, """
     email = session['email']
     things_to_do = mongo.db.things_to_do
     city = request.form.get('city')

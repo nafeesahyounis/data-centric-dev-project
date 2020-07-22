@@ -4,10 +4,10 @@
 
 <h2> Edit </h2>
 <div class="row">
-   <form class="col s12" action="{{ url_for('update_activity', user_activity_id=user_activity._id) }}" method="POST">
+   <form class="col s12" action="{{url_for('update_activity', user_activity_id=user_activity._id)}}" method="POST">
       <div class="row">
          <div class="input-field col s12">
-            <input id="city" name="city" type="text" class="validate" value={{user_activity.city}}>
+            <input id="city" name="city" type="text" class="validate" value="{{user_activity.city}}">
             <label for="password">City</label>
          </div>
       </div>

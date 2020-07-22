@@ -16,7 +16,7 @@
                <div class="card-content black-text">
                   {% if user_activities == []%}
                   <span class="card-title">
-                     <p class="header-text-createpage">{{no_activities}}</p>
+                     <p class="header-text">{{no_activities}}</p>
                   </span>
                   <button class="btn waves-effect waves-light"><a href="{{url_for('addactivity')}}">Create Activities</a></button>
                   {% else %}
@@ -26,7 +26,7 @@
                   <p>Name: {{user_activity.name|capitalize}} </p>
                   <p>Description: {{user_activity.description|capitalize}}</p>
                   <a class="waves-effect waves-light btn-large" href="{{url_for('edit_activity', user_activity_id=user_activity._id)}}">Edit</a>
-                  <!-- Modal Trigger -->
+                  <!-- Modal Trigger (taken from Materialize framework) -->
                   <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Delete</a>
                   <!-- Modal Structure -->
                   <div id="modal1" class="modal">
