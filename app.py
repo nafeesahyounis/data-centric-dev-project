@@ -91,6 +91,14 @@ def find_activity():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    """ First checks if user is already in session and if they are/
+        takes them to Permission Denied so they can't login twice./
+        If user simply loads page (get request), then login form is displayed./
+        If user inputs data, checks if email and password match and if they/
+        don't, returns error message in template (doesn_exist). / Otherwise/
+        user is successfully logged in, redirected to Index and their name/
+        is stored and displayed under 'Welcome' on index page to give feedback/
+        and show that they've logged in. """
     if 'email' in session:
         return render_template('pages/permissiondenied.html')
     else:
