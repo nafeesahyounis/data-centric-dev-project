@@ -98,7 +98,8 @@ def login():
         don't, returns error message in template (doesn_exist). / Otherwise/
         user is successfully logged in, redirected to Index and their name/
         is stored and displayed under 'Welcome' on index page to give feedback/
-        and show that they've logged in. """
+        and show that they've logged in. Code was taken from PrettyPrinted and/
+        modified for my use (see README for credits) """
     if 'email' in session:
         return render_template('pages/permissiondenied.html')
     else:
@@ -127,13 +128,22 @@ def login():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
+    """(code was taken from PrettyPrinted and modified for my use./
+       see Credits in README file for full reference./
+       Firstly, this checks if the method is POST. If not, it/
+       just returns the form. If it is, email address entered already/
+       is searched for in database and if it already exists it returns/
+       the already_exists variable in the template to give user/ 
+       feedback. If it doesn't exist, then it inserts all the info/
+       into the collections 'users' and creates a new user. When new user/
+       is created user is redirected to index page and their name is displayed/
+       under the 'Welcome' to give feedback that the registration was successful.
+    """
     if request.method == 'POST':
         users = mongo.db.users
         email = request.form.get('email')
-        name= request.form.get('first_name')
-
+        name = request.form.get('first_name')
         existing_user = users.find_one({'email': email})
-
         if existing_user is None:
             password = request.form['password']
             _hash = pbkdf2_sha256.hash(password)
