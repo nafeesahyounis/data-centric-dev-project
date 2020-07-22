@@ -11,44 +11,45 @@
       </div>
    </div>
 </div>
-   <div class="container">
-      <div class="row">
-         <form class="col s12 search-form header-text" action=" {{url_for('insert_activity')}}" method="POST">
-            <div class="row">
-               <div class="input-field col s12">
-                  <input id="city" name="city" type="text" class="validate">
-                  <label for="password">City</label>
-               </div>
+<!--Form with city, name, category and description inputs for user to create activity-->
+<div class="container">
+   <div class="row">
+      <form class="col s12 search-form header-text" action=" {{url_for('insert_activity')}}" method="POST">
+         <div class="row">
+            <div class="input-field col s12">
+               <input id="city" name="city" type="text" class="validate">
+               <label>City</label>
             </div>
-            <div class="row">
-               <div class="input-field col s12">
-                  <select name="category">
-                     <option value="" disabled selected>Choose your option</option>
-                     <option value="food">food</option>
-                     <option value="sports">sports</option>
-                     <option value="art">art</option>
-                  </select>
-                  <label>Category</label>
-               </div>
+         </div>
+         <div class="row">
+            <div class="input-field col s12">
+               <select name="category">
+                  <option value="" disabled selected>Choose your option</option>
+                  <option value="food">food</option>
+                  <option value="sports">sports</option>
+                  <option value="art">art</option>
+               </select>
+               <label>Category</label>
             </div>
-            <div class="row">
-               <div class="input-field col s12">
-                  <input id="name" name="name" type="text" class="validate">
-                  <label >Name</label>
-               </div>
+         </div>
+         <div class="row">
+            <div class="input-field col s12">
+               <input id="name" name="name" type="text" class="validate">
+               <label>Name</label>
             </div>
-            <div class="row">
-               <div class="input-field col s12">
-                  <input id="description" name="description" type="text" class="validate">
-                  <label>Description</label>
-               </div>
+         </div>
+         <div class="row">
+            <div class="input-field col s12">
+               <input id="description" name="description" type="text" class="validate">
+               <label>Description</label>
             </div>
-               <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-               <i class="material-icons right">send</i>
-               </button>
-         </form>
-                <h5>{{not_submitted}}</h5>
-
-      </div>
+         </div>
+         <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+         <i class="material-icons right">send</i>
+         </button>
+      </form>
+      <!--If a mandatory field is missing, the not_submitted error message is generated from the backend-->
+      <h5>{{not_submitted}}</h5>
    </div>
+</div>
 {% endblock %}
