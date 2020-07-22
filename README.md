@@ -172,11 +172,11 @@ Wireframes were made with [Balsamiq](https://balsamiq.com/) during the scope par
 
 [Edit](https://ibb.co/w6kpMGb)
 
-[Register/Create Account](https://ibb.co/pfKjwrJ)
+[Register/Create Account](https://ibb.co/NVFfP1K)
 
-[Login](https://ibb.co/pfKjwrJ)
+[Login](https://ibb.co/z4dVDS6)
 
-[Permission Denied](https://ibb.co/pfKjwrJ)
+[Permission Denied](https://ibb.co/LgyHDds)
 
 
 # Features

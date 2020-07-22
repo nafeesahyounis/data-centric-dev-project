@@ -129,11 +129,11 @@ def register():
         if existing_user is None:
             password = request.form['password']
             _hash = pbkdf2_sha256.hash(password)
-            new_user = users.insert_one({
-                                         'first_name': name,
-                                         'last_name': request.form.get('last_name'),
-                                         'email': email,
-                                         'password': _hash})
+            users.insert_one({
+                                'first_name': name,
+                                'last_name': request.form.get('last_name'),
+                                'email': email,
+                                'password': _hash})
             session['email'] = email
             return render_template('pages/index.html',
                                    name=name)
