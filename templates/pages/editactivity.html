@@ -1,44 +1,43 @@
 {% extends 'layout/base.html' %}
 {% block content %}
+<!--Pre-filled form based on existing data from object id of activity. User can modify this and resubmit.-->
 <div class="container">
-
-<h2> Edit </h2>
-<div class="row">
-   <form class="col s12" action="{{url_for('update_activity', user_activity_id=user_activity._id)}}" method="POST">
-      <div class="row">
-         <div class="input-field col s12">
-            <input id="city" name="city" type="text" class="validate" value="{{user_activity.city}}">
-            <label for="password">City</label>
-         </div>
-      </div>
-      <div class="row">
-                     <div class="input-field col s12">
-                        <select name="category">
-                           <option value="" disabled selected>Choose your option</option>
-                           <option value="food">food</option>
-                           <option value="sport">sport</option>
-                           <option value="art">art</option>
-                        </select>
-                        <label>Category</label>
-                     </div>
-                  </div>
-      <div class="row">
-         <div class="input-field col s12">
-            <input id="name" name="name" type="text" class="validate" value="{{user_activity.name}}">
-            <label for="password">Name</label>
-         </div>
-      </div>
-      <div class="row">
-               <div class="input-field col s12">
-            <input id="description" name="description" type="text" class="validate" value="{{user_activity.description}}">
-                  <label>Description</label>
-               </div>
+   <h2> Edit </h2>
+   <div class="row">
+      <form class="col s12" action="{{url_for('update_activity', user_activity_id=user_activity._id)}}" method="POST">
+         <div class="row">
+            <div class="input-field col s12">
+               <input id="city" name="city" type="text" class="validate" value="{{user_activity.city}}">
+               <label>City</label>
             </div>
-</div>
-<button class="btn waves-effect waves-light" type="submit" name="action">Edit
-<i class="material-icons right">edit</i>
-</button>
-</form>
-</div>
+         </div>
+         <div class="row">
+            <div class="input-field col s12">
+               <select name="category">
+                  <option value="" disabled selected>Choose your option</option>
+                  <option value="food">food</option>
+                  <option value="sport">sport</option>
+                  <option value="art">art</option>
+               </select>
+               <label>Category</label>
+            </div>
+         </div>
+         <div class="row">
+            <div class="input-field col s12">
+               <input id="name" name="name" type="text" class="validate" value="{{user_activity.name}}">
+               <label>Name</label>
+            </div>
+         </div>
+         <div class="row">
+            <div class="input-field col s12">
+               <input id="description" name="description" type="text" class="validate" value="{{user_activity.description}}">
+               <label>Description</label>
+            </div>
+         </div>
+   </div>
+   <button class="btn waves-effect waves-light" type="submit" name="action">Edit
+   <i class="material-icons right">edit</i>
+   </button>
+   </form>
 </div>
 {% endblock %}
